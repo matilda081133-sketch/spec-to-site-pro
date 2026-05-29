@@ -118,14 +118,6 @@
   .divider-rule {
     height: 1px; background: linear-gradient(to right, transparent, var(--color-border), transparent);
   }
+}
 
-    display: inline-flex; align-items: center; gap: .4rem;
-    background: var(--color-surface-soft); color: var(--color-secondary-foreground);
-    padding: .4rem .75rem; border-radius: 999px; font-size: .8125rem;
-    border: 1px solid oklch(0.85 0.025 160);
-  }
-
-  .divider-rule {
-    height: 1px; background: linear-gradient(to right, transparent, var(--color-border), transparent);
-  }
 }
