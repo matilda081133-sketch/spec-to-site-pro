@@ -1,14 +1,20 @@
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <circle cx="14" cy="14" r="13" stroke="currentColor" strokeWidth="1.2" />
-        <path d="M9 14c2.5-4 7.5-4 10 0M9 14c2.5 4 7.5 4 10 0" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-        <circle cx="14" cy="14" r="1.6" fill="currentColor"/>
+    <div className={`flex items-center gap-2.5 ${className}`}>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" stroke="currentColor" strokeWidth="1.2" />
+        <path
+          d="M16 23s-6-3.6-6-9a4 4 0 016-3.46A4 4 0 0122 14c0 5.4-6 9-6 9z"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        <path d="M11.5 15.5h9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
       </svg>
       <div className="leading-tight">
-        <div className="font-display text-lg">Мать и Дитя</div>
-        <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">медицинский центр</div>
+        <div className="font-display text-lg">Здоровье нации</div>
+        <div className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">медицинский центр</div>
       </div>
     </div>
   );

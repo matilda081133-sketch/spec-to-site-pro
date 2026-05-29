@@ -78,12 +78,12 @@
   .btn-primary {
     display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
     background: var(--color-primary); color: var(--color-primary-foreground);
-    padding: 1.05rem 1.75rem; border-radius: var(--radius-lg);
-    font-weight: 500; font-size: 1rem; letter-spacing: -0.005em;
+    padding: 1.15rem 2rem; border-radius: var(--radius-lg);
+    font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.005em;
     transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    box-shadow: 0 1px 0 oklch(0.3 0.04 195 / 0.4) inset, 0 12px 30px -12px oklch(0.42 0.06 195 / 0.55);
+    box-shadow: 0 1px 0 oklch(0.3 0.04 195 / 0.4) inset, 0 16px 40px -14px oklch(0.42 0.06 195 / 0.6);
   }
-  .btn-primary:hover { background: oklch(0.36 0.06 195); transform: translateY(-1px); }
+  .btn-primary:hover { background: oklch(0.36 0.06 195); transform: translateY(-1px); box-shadow: 0 1px 0 oklch(0.3 0.04 195 / 0.4) inset, 0 20px 50px -14px oklch(0.42 0.06 195 / 0.7); }
   .btn-secondary {
     display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
     background: transparent; color: var(--color-primary);
@@ -94,6 +94,31 @@
   .btn-secondary:hover { background: var(--color-surface-soft); }
 
   .badge-soft {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: var(--color-surface-soft); color: var(--color-secondary-foreground);
+    padding: .4rem .75rem; border-radius: 999px; font-size: .8125rem;
+    border: 1px solid oklch(0.85 0.025 160);
+  }
+
+  .badge-urgency {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: oklch(0.42 0.06 195); color: var(--color-primary-foreground);
+    padding: .5rem .9rem; border-radius: 999px; font-size: .8125rem; font-weight: 500;
+    border: 1px solid oklch(0.36 0.06 195);
+  }
+  .badge-urgency .dot { width: .5rem; height: .5rem; border-radius: 999px; background: oklch(0.78 0.16 80); box-shadow: 0 0 0 4px oklch(0.78 0.16 80 / .2); }
+
+  .price-block {
+    display: inline-flex; flex-direction: column; gap: .25rem;
+    background: var(--color-card); border: 1px solid var(--color-border);
+    padding: 1rem 1.25rem; border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px -16px oklch(0.42 0.06 195 / 0.3);
+  }
+
+  .divider-rule {
+    height: 1px; background: linear-gradient(to right, transparent, var(--color-border), transparent);
+  }
+
     display: inline-flex; align-items: center; gap: .4rem;
     background: var(--color-surface-soft); color: var(--color-secondary-foreground);
     padding: .4rem .75rem; border-radius: 999px; font-size: .8125rem;
