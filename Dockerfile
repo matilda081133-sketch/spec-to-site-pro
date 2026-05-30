@@ -15,4 +15,4 @@ RUN npm ci --only=production --legacy-peer-deps
 EXPOSE 3000
 ENV PORT=3000
 ENV HOST=0.0.0.0
-CMD ["node", "dist/server/index.mjs"]
+CMD ["node", "--max-old-space-size=180", "dist/server/index.mjs"]
