@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.lovable
+.tanstack
+.prettierignore
+.prettierrc
+tsconfig.json
+eslint.config.js
+package-lock.json
+bun.lock
+bunfig.toml

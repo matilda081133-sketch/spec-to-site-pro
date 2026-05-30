@@ -1,14 +1,55 @@
 import { useState } from "react";
 
-export function LeadForm({ compact = false }: { compact?: boolean }) {
+export function LeadForm({ compact = false, submitText = "Узнать, подойдёт ли мне процедура" }: { compact?: boolean; submitText?: string }) {
   const [sent, setSent] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [agree, setAgree] = useState(true);
 
+  const formatPhone = (val: string) => {
+    // Strip non-digits
+    let cleaned = val.replace(/\D/g, "");
+    
+    // Handle leading 7 or 8
+    if (cleaned.startsWith("7") || cleaned.startsWith("8")) {
+      cleaned = cleaned.substring(1);
+    }
+    
+    // Limit to 10 digits
+    cleaned = cleaned.substring(0, 10);
+    
+    // Format the digits
+    let formatted = "";
+    if (cleaned.length > 0) {
+      formatted = "+7 (" + cleaned.substring(0, 3);
+    }
+    if (cleaned.length >= 4) {
+      formatted += ") " + cleaned.substring(3, 6);
+    }
+    if (cleaned.length >= 7) {
+      formatted += "-" + cleaned.substring(6, 8);
+    }
+    if (cleaned.length >= 9) {
+      formatted += "-" + cleaned.substring(8, 10);
+    }
+    return formatted;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value);
+    setPhone(formatted);
+  };
+
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !phone || !agree) return;
+    
+    // Validate complete phone number (+7 + 10 digits = 18 chars)
+    if (phone.length < 18) {
+      alert("Пожалуйста, введите полный номер телефона");
+      return;
+    }
+    
     setSent(true);
   }
 
@@ -40,7 +81,7 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
           id="phone"
           type="tel"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={handlePhoneChange}
           required
           className="w-full rounded-lg border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-ring"
           placeholder="+7 (___) ___-__-__"
@@ -50,7 +91,7 @@ export function LeadForm({ compact = false }: { compact?: boolean }) {
         <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} className="mt-0.5" />
         <span>Согласен(на) на обработку персональных данных в соответствии с политикой клиники.</span>
       </label>
-      <button type="submit" className="btn-primary w-full">Узнать, подойдёт ли мне процедура</button>
+      <button type="submit" className="btn-primary w-full">{submitText}</button>
       <p className="text-xs text-muted-foreground text-center">
         Администратор свяжется с вами, ответит на вопросы и подберёт удобное время записи.
       </p>
