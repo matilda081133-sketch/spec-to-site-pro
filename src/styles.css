@@ -102,9 +102,9 @@
 
   .badge-urgency {
     display: inline-flex; align-items: center; gap: .5rem;
-    background: oklch(0.42 0.06 195); color: var(--color-primary-foreground);
+    background: transparent; color: var(--color-primary);
     padding: .5rem .9rem; border-radius: 999px; font-size: .8125rem; font-weight: 500;
-    border: 1px solid oklch(0.36 0.06 195);
+    border: 1px solid oklch(0.42 0.06 195 / 0.4);
   }
   .badge-urgency .dot { width: .5rem; height: .5rem; border-radius: 999px; background: oklch(0.78 0.16 80); box-shadow: 0 0 0 4px oklch(0.78 0.16 80 / .2); }
 

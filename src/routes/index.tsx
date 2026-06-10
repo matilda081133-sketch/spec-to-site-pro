@@ -4,6 +4,14 @@ import doctorPortraitImg from "@/assets/doctor-portrait.jpg";
 import cabinetImg from "@/assets/cabinet.jpg";
 import atlantisBright from "@/assets/atlantis-bright.jpg";
 import atlantisAmber from "@/assets/atlantis-amber.jpg";
+import atlantisBrightFull from "@/assets/atlantis-bright-full.png";
+import atlantisAmberFull from "@/assets/atlantis-amber-full.png";
+import procedure1 from "@/assets/procedure-1.jpg";
+import procedure2 from "@/assets/procedure-2.jpg";
+import procedure3 from "@/assets/procedure-3.jpg";
+import procedure4 from "@/assets/procedure-4.jpg";
+import review1 from "@/assets/review-1.png";
+import review2 from "@/assets/review-2.png";
 import { Logo } from "@/components/site/Logo";
 import { LeadForm } from "@/components/site/LeadForm";
 import { Faq } from "@/components/site/Faq";
@@ -76,10 +84,12 @@ function Index() {
           <div className="md:col-span-7 order-1">
             <h1 className="font-display text-[2.25rem] sm:text-5xl md:text-[3.5rem] leading-[1.02]">
               Биоревитализация лица, шеи и&nbsp;кистей рук
-              <span className="block text-primary mt-1">за 13 000 ₽</span>
+              <span className="block text-primary text-xl sm:text-2xl md:text-3xl mt-2 font-semibold font-sans leading-tight">
+                + консультация врача перед процедурой бесплатно
+              </span>
             </h1>
             <p className="mt-4 text-muted-foreground md:text-lg max-w-xl">
-              Перед процедурой врач оценит состояние кожи и возможные противопоказания.
+              Комплекс для тех, кто хочет более свежий и ухоженный внешний вид без радикальных изменений.
             </p>
 
             {/* Price block */}
@@ -112,27 +122,22 @@ function Index() {
                 Администратор свяжется с вами и подберёт удобное время.
               </p>
             </div>
-
-            <p className="mt-5 text-[11px] text-muted-foreground">
-              Имеются противопоказания, необходима консультация специалиста.
-            </p>
           </div>
 
           <div className="md:col-span-5 order-2">
             <div className="relative">
               <div className="absolute -inset-4 bg-surface-soft/50 rounded-[2rem] -z-10" />
               <img
-                src={doctorOfficeImg}
+                src={cabinetImg}
                 alt="Врач-косметолог Перова Екатерина Александровна"
                 width={1024}
                 height={1280}
                 className="rounded-2xl shadow-xl object-cover w-full aspect-[4/5]"
               />
               <div className="absolute -bottom-5 -left-5 bg-card border rounded-xl p-4 shadow-lg max-w-[250px] hidden md:block">
-                <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">Ваш врач</div>
+                <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
                 <div className="font-display text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
-                <div className="text-xs text-muted-foreground mt-1.5">Врач-косметолог, дерматовенеролог</div>
-                <div className="text-xs text-muted-foreground mt-0.5">Стаж с 2013 года</div>
+                <div className="text-xs text-muted-foreground mt-1.5">Стаж с 2013 года</div>
               </div>
             </div>
           </div>
@@ -191,67 +196,74 @@ function Index() {
 
       {/* BLOCK 3 — комплекс и цена */}
       <section className="bg-surface py-12 md:py-16 border-y">
-        <div className="container-page grid md:grid-cols-2 gap-10 items-start">
-          <div>
-            <SectionTitle
-              kicker="Что входит в комплекс"
-              title="Три зоны, которые чаще всего выдают возраст"
-              sub="Лицо, шея и кисти рук требуют внимания одновременно. Именно поэтому в комплекс входят все три зоны и консультация врача-косметолога."
-            />
-            <ul className="space-y-2.5">
-              {[
-                ["Консультация врача-косметолога", "Врач оценит состояние кожи, ответит на вопросы и поможет подобрать оптимальный вариант процедуры."],
-                ["Биоревитализация лица", "Для более свежего, увлажнённого и ухоженного внешнего вида кожи лица."],
-                ["Биоревитализация шеи", "Для зоны, которая одной из первых начинает напоминать о возрасте и часто остаётся без внимания."],
-                ["Биоревитализация кистей рук", "Для кожи рук, которая ежедневно находится на виду и также нуждается в уходе и увлажнении."],
-                ["Индивидуальный подбор препарата", "Врач подберёт препарат с учётом состояния кожи и целей процедуры."],
-                ["Рекомендации после процедуры", "Подробные рекомендации для восстановления и сохранения результата после процедуры."],
-              ].map(([t, s]) => (
-                <li key={t} className="flex gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                  <div>
-                    <div className="font-medium">{t}</div>
-                    <div className="text-sm text-muted-foreground">{s}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        <div className="container-page grid md:grid-cols-2 gap-10 items-stretch">
+          <div className="flex flex-col justify-between">
+            <div>
+              <SectionTitle
+                kicker="Что входит в комплекс"
+                title="комплекс биоревитализации"
+                sub="Лицо, шея и кисти рук требуют внимания одновременно. Именно поэтому в комплекс входят все три зоны и консультация врача-косметолога."
+              />
+              <ul className="space-y-2.5">
+                {[
+                  ["Консультация врача-косметолога", "Врач оценит состояние кожи, ответит на вопросы и поможет подобрать оптимальный вариант процедуры."],
+                  ["Биоревитализация лица", "Для более свежего, увлажнённого и ухоженного внешнего вида кожи лица."],
+                  ["Биоревитализация шеи", "Для зоны, которая одной из первых начинает напоминать о возрасте и часто остаётся без внимания."],
+                  ["Биоревитализация кистей рук", "Для кожи рук, которая ежедневно находится на виду и также нуждается в уходе и увлажнённости."],
+                  ["Индивидуальный подбор препарата", "Врач подберёт препарат с учётом состояния кожи и целей процедуры."],
+                  ["Рекомендации после процедуры", "Подробные рекомендации для восстановления и сохранения результата после процедуры."],
+                ].map(([t, s]) => (
+                  <li key={t} className="flex gap-3">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                    <div>
+                      <div className="font-medium">{t}</div>
+                      <div className="text-sm text-muted-foreground">{s}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="rounded-2xl bg-card border-2 border-primary/10 p-7 md:p-9 shadow-xl">
-            <div className="badge-urgency mb-4">
-              <span className="dot" />
-              До 30 июня
-            </div>
-            <div className="text-sm uppercase tracking-[0.14em] text-muted-foreground">Стоимость комплекса</div>
-            <div className="mt-2 flex items-baseline gap-3 flex-wrap">
-              <span className="font-display text-6xl md:text-7xl text-primary leading-none">13 000 ₽</span>
-              <span className="text-[var(--color-price-old)] line-through text-xl">23 000 ₽</span>
-            </div>
-            <div className="mt-4 rounded-xl bg-surface-soft border border-accent/30 p-4">
-              <div className="text-xs uppercase tracking-[0.14em] text-accent-foreground/70">Ваша выгода</div>
-              <div className="font-display text-3xl text-primary mt-1">−10 000 ₽</div>
-              <div className="text-sm text-muted-foreground mt-1">
-                Специальная цена на комплекс из трёх зон действует до 30 июня.
+          <div className="rounded-2xl bg-card border border-border p-7 md:p-9 shadow-xl flex flex-col justify-between">
+            <div>
+              <div className="text-sm uppercase tracking-[0.14em] text-muted-foreground">Стоимость комплекса</div>
+              <div className="mt-2 flex items-baseline gap-3 flex-wrap">
+                <span className="font-display text-6xl md:text-7xl text-primary leading-none">13 000 ₽</span>
+                <span className="text-[var(--color-price-old)] line-through text-xl">23 000 ₽</span>
               </div>
+              <div className="mt-4 rounded-xl bg-surface-soft border border-accent/20 p-4">
+                <div className="text-xs uppercase tracking-[0.14em] text-accent-foreground/70 leading-relaxed">
+                  экономия по сравнению со стандартной стоимостью комплекса
+                </div>
+                <div className="font-display text-3xl text-primary mt-1">−10 000 ₽</div>
+              </div>
+              <div className="divider-rule my-6" />
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  Консультация врача-косметолога включена
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  Лицо, шея и кисти рук за одну процедуру
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  Подбор препарата индивидуально
+                </li>
+              </ul>
             </div>
-            <div className="divider-rule my-5" />
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>— Консультация врача-косметолога включена</li>
-              <li>— Подбор препарата индивидуально</li>
-              <li>— Лицензированный медицинский центр</li>
-            </ul>
-            <a href="#zayavka" className="btn-primary mt-6 w-full">Записаться на консультацию →</a>
-            <p className="mt-2 text-xs text-muted-foreground text-center">Запись не обязывает к проведению процедуры</p>
-            <p className="mt-3 text-[11px] text-muted-foreground text-center">
-              Цена действует в рамках спецпредложения до 30 июня.
-            </p>
+            <div>
+              <a href="#zayavka" className="btn-primary mt-8 w-full">Записаться на консультацию →</a>
+              <p className="mt-3 text-xs text-muted-foreground text-center">Запись не обязывает к проведению процедуры</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* BLOCK 4 — врач */}
+      {/* BLOCK 4 — ВРАЧ */}
       <section className="container-page py-12 md:py-16">
-        <div className="grid md:grid-cols-12 gap-10 items-start">
+        <div className="grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-5">
             <img
               src={doctorPortraitImg}
@@ -259,14 +271,8 @@ function Index() {
               loading="lazy"
               width={1024}
               height={1280}
-              className="rounded-2xl object-cover w-full aspect-[4/5] border"
+              className="rounded-2xl object-cover w-full aspect-[4/5] border shadow-lg"
             />
-            <div className="mt-4">
-              <div className="rounded-xl border bg-card p-3 text-center max-w-[140px]">
-                <div className="font-display text-2xl text-primary">12+</div>
-                <div className="text-[11px] text-muted-foreground leading-tight mt-1">лет практики</div>
-              </div>
-            </div>
           </div>
           <div className="md:col-span-7">
             <div className="text-xs uppercase tracking-[0.18em] text-accent mb-2">Ваш врач</div>
@@ -305,13 +311,15 @@ function Index() {
             </div>
 
             <div className="mt-4 rounded-xl border-l-2 border-primary bg-card p-4">
-              <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground mb-1.5">Направления работы</div>
-              <p className="text-sm">
-                Биоревитализация · мезотерапия · ботулинотерапия · контурная пластика · работа с качеством и увлажнённостью кожи.
+              <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground mb-1.5">Ожидаемый результат</div>
+              <p className="text-sm font-semibold text-primary">
+                Более свежий и ухоженный внешний вид без эффекта «сделанного» лица
               </p>
             </div>
 
-            <a href="#zayavka" className="btn-secondary mt-6">Записаться к врачу-косметологу</a>
+            <div className="mt-8 flex justify-center md:justify-start">
+              <a href="#zayavka" className="btn-primary">Записаться к врачу-косметологу →</a>
+            </div>
           </div>
         </div>
       </section>
@@ -328,26 +336,25 @@ function Index() {
             {[
               {
                 t: "ATLANTIS BRIGHT",
-                s: "Для кожи, которая выглядит тусклой, потеряла свежесть и нуждается в более ровном тоне и естественном сиянии.",
-                img: atlantisBright,
+                s: "Препарат нового поколения с арбутином для осветления, выравнивания тона кожи, борьбы с пигментацией и куперозом. Устраняет тусклый и неровный цвет кожи, придает естественное сияние.",
+                img: atlantisBrightFull,
               },
               {
                 t: "ATLANTIS AMBER",
-                s: "Для кожи, которой важно вернуть увлажнённость, упругость и более ухоженный внешний вид.",
-                img: atlantisAmber,
+                s: "Препарат с янтарной кислотой (сукцинатом натрия) для глубокого увлажнения, гладкости, плотности и упругости кожи, устранения отеков, улучшения микроциркуляции и уменьшения мелких морщин.",
+                img: atlantisAmberFull,
               },
             ].map((p) => (
               <div key={p.t} className="rounded-2xl bg-card border overflow-hidden flex flex-col sm:flex-row">
                 <div className="sm:w-2/5 bg-surface-soft/50 flex items-center justify-center p-4">
-                  <img src={p.img} alt={p.t} loading="lazy" width={1024} height={1024} className="w-full max-w-[200px] aspect-square object-cover rounded-xl" />
+                  <img src={p.img} alt={p.t} loading="lazy" width={1024} height={1024} className="w-full max-w-[150px] aspect-square object-contain rounded-xl" />
                 </div>
                 <div className="p-6 sm:w-3/5">
                   <div className="text-[11px] uppercase tracking-[0.14em] text-accent mb-1.5">Медицинский препарат</div>
                   <div className="font-display text-2xl">{p.t}</div>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.s}</p>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.s}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5 text-[11px]">
                     <span className="badge-soft">Сертифицирован</span>
-                    <span className="badge-soft">Профессиональная линейка</span>
                     <span className="badge-soft border-accent/30 text-accent-foreground bg-accent/5">Подбор после консультации врача</span>
                   </div>
                 </div>
@@ -417,14 +424,14 @@ function Index() {
           <SectionTitle
             kicker="Этапы процедуры"
             title="Как проходит процедура"
-            sub="Процедура занимает 20–40 минут. Перед началом врач проводит осмотр кожи, а после процедуры даёт рекомендации по уходу."
+            sub="Процедура занимает 40–60 минут. Перед началом врач проводит осмотр кожи, а после процедуры даёт рекомендации по уходу."
           />
-          <div className="grid md:grid-cols-12 gap-6 items-start">
+          <div className="grid md:grid-cols-12 gap-6 items-center">
             <ol className="md:col-span-7 grid sm:grid-cols-2 gap-3">
               {[
                 ["Консультация и осмотр", "Врач оценит состояние кожи, ответит на вопросы и определит оптимальный план проведения процедуры."],
                 ["Подготовка кожи", "Кожа очищается и подготавливается к процедуре. При необходимости врач использует аппликационную анестезию."],
-                ["Проведение процедуры", "Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает от 20 до 40 минут."],
+                ["Проведение процедуры", "Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает от 40 до 60 минут."],
                 ["Рекомендации после процедуры", "Врач расскажет об особенностях восстановления, уходе за кожей и ответит на вопросы, которые могут возникнуть после процедуры."],
               ].map(([t, s], i) => (
                 <li key={t} className="rounded-2xl bg-card border p-5">
@@ -434,55 +441,48 @@ function Index() {
                 </li>
               ))}
             </ol>
-            <div className="md:col-span-5">
-              <img src={cabinetImg} alt="Процедурный кабинет МЦ «Здоровье нации»" loading="lazy" width={1280} height={896} className="rounded-2xl border object-cover w-full aspect-[4/5]" />
-              <p className="mt-3 text-xs text-muted-foreground text-center">Кабинет медицинского центра «Здоровье нации»</p>
+            <div className="md:col-span-5 grid grid-cols-2 gap-3">
+              <img src={procedure1} alt="Проведение биоревитализации" loading="lazy" className="rounded-2xl border object-cover w-full aspect-[4/5] shadow-md" />
+              <img src={procedure2} alt="Введение препарата Atlantis" loading="lazy" className="rounded-2xl border object-cover w-full aspect-[4/5] shadow-md" />
             </div>
           </div>
-          <div className="mt-8 rounded-xl border border-primary/10 bg-card p-5 max-w-3xl">
-            <div className="text-sm font-semibold text-primary">После процедуры можно вернуться к привычным делам в тот же день</div>
-            <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
-              После биоревитализации не требуется длительного восстановления. Однако в местах инъекций могут временно сохраняться небольшие следы или синяки. Это нормальная реакция кожи, которая обычно проходит самостоятельно.
-            </p>
+          <div className="mt-6 rounded-2xl border border-primary/10 bg-card p-6 shadow-sm">
+            <div className="flex gap-4 items-start">
+              <span className="text-2xl">✨</span>
+              <div>
+                <h4 className="font-semibold text-primary">После процедуры можно вернуться к привычным делам в тот же день</h4>
+                <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
+                  После биоревитализации не требуется длительного восстановления. Однако в местах инъекций могут временно сохраняться небольшие следы или синяки. Это нормальная реакция кожи, которая обычно проходит самостоятельно.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* BLOCK 8 — результат */}
+      {/* BLOCK 8 — отзывы */}
       <section className="container-page py-12 md:py-16">
-        <div className="grid md:grid-cols-12 gap-10 items-center">
-          <div className="md:col-span-7">
-            <SectionTitle
-              kicker="Результат"
-              title="Какие изменения обычно замечают после процедуры"
-              sub="Биоревитализация помогает улучшить качество кожи и сделать внешний вид более свежим и ухоженным без радикальных изменений внешности."
-            />
-            <ul className="space-y-4">
-              {[
-                ["Кожа выглядит более увлажнённой и ухоженной", "После процедуры кожа постепенно выглядит более свежей и напитанной."],
-                ["Лицо выглядит более свежим и отдохнувшим", "Уходит ощущение тусклого, уставшего внешнего вида."],
-                ["Тон кожи становится более ровным", "Кожа может выглядеть спокойнее, ровнее и визуально здоровее."],
-                ["Шея и кисти рук выглядят более ухоженно", "Комплекс помогает уделить внимание не только лицу, но и открытым зонам, которые часто выдают возраст."],
-                ["Изменения развиваются постепенно", "Первые изменения обычно становятся заметны через несколько дней после процедуры."],
-              ].map(([t, d]) => (
-                <li key={t} className="flex gap-3">
-                  <span className="text-accent mt-1">—</span>
-                  <div>
-                    <div className="font-semibold text-base leading-snug">{t}</div>
-                    <div className="text-sm text-muted-foreground mt-0.5">{d}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="md:col-span-5 rounded-2xl border-2 border-accent/15 bg-card p-6 md:p-8 shadow-lg">
-            <div className="text-xs uppercase tracking-[0.14em] text-accent mb-2">Важно понимать</div>
-            <h3 className="font-display text-2xl text-primary leading-tight">Биоревитализация не меняет черты лица и не даёт эффекта пластики</h3>
-            <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-              Она работает с качеством кожи: увлажнённостью, свежестью, ухоженностью и общим состоянием открытых зон.
+        <SectionTitle
+          kicker="Отзывы"
+          title="Что отмечают пациенты после процедуры"
+          sub="Отзывы пациентов после биоревитализации у Екатерины Перовой"
+        />
+        <div className="grid md:grid-cols-12 gap-8 items-stretch mt-8">
+          <div className="md:col-span-4 rounded-2xl border bg-card p-6 md:p-8 shadow-sm flex flex-col justify-center items-center text-center">
+            <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-3">Рейтинг врача</div>
+            <div className="font-display text-5xl md:text-6xl text-primary font-bold">4,9 <span className="text-xl md:text-2xl font-sans text-muted-foreground font-normal">из 5</span></div>
+            <div className="flex gap-1.5 text-accent text-2xl my-3.5">★★★★★</div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              на основании отзывов пациентов на портале Продокторов
             </p>
-            <p className="text-sm text-muted-foreground mt-2.5 leading-relaxed">
-              Результат индивидуален и зависит от исходного состояния кожи.
+          </div>
+          <div className="md:col-span-8 flex flex-col justify-between">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <img src={review1} alt="Отзыв пациента на Продокторов 1" loading="lazy" className="rounded-2xl border object-contain w-full shadow-md bg-white p-2" />
+              <img src={review2} alt="Отзыв пациента на Продокторов 2" loading="lazy" className="rounded-2xl border object-contain w-full shadow-md bg-white p-2" />
+            </div>
+            <p className="text-xs text-muted-foreground text-center sm:text-right mt-3">
+              Отзывы опубликованы на независимом медицинском портале Продокторов.
             </p>
           </div>
         </div>
@@ -490,16 +490,25 @@ function Index() {
 
       {/* BLOCK 9 — FAQ */}
       <section className="bg-surface border-y py-12 md:py-16">
-        <div className="container-page grid md:grid-cols-12 gap-10">
-          <div className="md:col-span-4">
+        <div className="container-page">
+          <div className="max-w-3xl mx-auto mb-10 text-center flex flex-col items-center">
             <SectionTitle kicker="FAQ" title="Частые вопросы" />
-            <p className="text-sm text-muted-foreground">
-              Не нашли ответ на свой вопрос? Оставьте заявку, и администратор медицинского центра свяжется с вами и подробно проконсультирует.
-            </p>
-            <a href="#zayavka" className="btn-secondary mt-5">Остались вопросы? Мы перезвоним</a>
           </div>
-          <div className="md:col-span-8">
-            <Faq />
+          <div className="grid md:grid-cols-12 gap-8 items-start">
+            <div className="md:col-span-4 grid sm:grid-cols-2 md:grid-cols-1 gap-4">
+              <img src={procedure3} alt="Проведение биоревитализации шеи" loading="lazy" className="rounded-2xl border object-cover w-full aspect-[4/5] shadow-md" />
+              <img src={procedure4} alt="Биоревитализация кистей рук" loading="lazy" className="rounded-2xl border object-cover w-full aspect-[4/5] shadow-md" />
+            </div>
+            <div className="md:col-span-8 bg-card rounded-2xl border p-6 md:p-8 shadow-sm">
+              <Faq />
+            </div>
+          </div>
+          <div className="mt-12 text-center max-w-xl mx-auto">
+            <h3 className="font-display text-2xl text-primary leading-tight">Не нашли ответ на свой вопрос?</h3>
+            <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+              Оставьте заявку, и администратор медицинского центра свяжется с вами и подробно проконсультирует.
+            </p>
+            <a href="#zayavka" className="btn-primary mt-5">Получить консультацию →</a>
           </div>
         </div>
       </section>
@@ -523,18 +532,19 @@ function Index() {
                   <span className="dot" />
                   Спецпредложение действует до 30 июня
                 </div>
-                <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Стоимость комплекса</div>
-                <div className="flex items-baseline gap-3 mt-1.5">
-                  <span className="font-display text-4xl text-primary font-semibold">13 000 ₽</span>
+                <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground font-semibold">СТОИМОСТЬ КОМПЛЕКСА</div>
+                <div className="flex items-baseline gap-3 mt-1.5 flex-wrap">
+                  <span className="font-display text-4xl text-primary font-bold">13 000 ₽</span>
                   <span className="text-[var(--color-price-old)] line-through text-lg">23 000 ₽</span>
-                  <span className="badge-soft font-semibold bg-accent/10 border-accent/30 text-accent-foreground">−10 000 ₽</span>
+                  <span className="text-accent font-semibold text-sm">[ Экономия 10 000 ₽ ]</span>
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">Комплекс включает лицо, шею и кисти рук.</p>
+                <p className="text-xs text-muted-foreground mt-2.5 font-medium">Комплекс включает: лицо, шею и кисти рук</p>
+                <p className="text-xs text-muted-foreground/85 mt-1">◌ Спецпредложение действует до 30 июня</p>
               </div>
 
               {/* Advantages list second */}
               <ul className="space-y-2.5 text-[15px]">
-                <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Процедуру проводит врач-косметолог с опытом более 12 лет</li>
+                <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Процедуру проводит врач-косметолог с опыт более 12 лет</li>
                 <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Используются сертифицированные препараты профессиональной линейки</li>
                 <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Медицинский центр имеет лицензию на оказание услуг по косметологии</li>
                 <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Консультация врача-косметолога включена в стоимость</li>
@@ -550,10 +560,15 @@ function Index() {
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <Logo className="text-primary" />
-            <p className="text-sm text-muted-foreground mt-4">
+            <p className="text-sm text-muted-foreground mt-4 animate-fade-in">
               Медицинский центр «Здоровье нации»<br />
               Врачебная косметология в Липецке. Консультации и процедуры под контролем врача-косметолога.
             </p>
+            <div className="flex gap-2.5 mt-4 flex-wrap">
+              <a href="https://vk.com/zdorovie_nacii48" target="_blank" rel="noreferrer" className="hover:text-primary font-medium text-xs border rounded-lg px-2.5 py-1 bg-card transition-colors">VK</a>
+              <a href="https://ok.ru/zdorovie_nacii48" target="_blank" rel="noreferrer" className="hover:text-primary font-medium text-xs border rounded-lg px-2.5 py-1 bg-card transition-colors">OK</a>
+              <a href="https://t.me/zdorovie48" target="_blank" rel="noreferrer" className="hover:text-primary font-medium text-xs border rounded-lg px-2.5 py-1 bg-card transition-colors">Telegram</a>
+            </div>
           </div>
           <div className="space-y-2 text-sm">
             <div className="text-xs uppercase tracking-[0.16em] text-muted-foreground mb-2">Запись на консультацию</div>
@@ -565,14 +580,18 @@ function Index() {
                 className="hover:text-primary"
               >Липецк, ул. Октябрьская, 61</a>
             </div>
-            <div className="text-muted-foreground">Пн–Сб: 09:00–20:00</div>
+            <div className="text-muted-foreground space-y-0.5">
+              <div>Пн–Пт: 08:00–21:00</div>
+              <div>Сб: 08:00–18:00</div>
+              <div>Вс: 09:00–18:00</div>
+            </div>
           </div>
           <div className="text-xs text-muted-foreground space-y-1.5">
             <div className="text-xs uppercase tracking-[0.16em] text-muted-foreground mb-2">Юридическая информация</div>
-            <div>ООО «Здоровье нации»</div>
+            <div>ООО «Мать и дитя»</div>
+            <div>Адрес: Липецк, ул. Фрунзе, дом 14, помещение №3</div>
             <div>Лицензия № Л041-01195-48/00318538 от 18.01.2018</div>
             <div>ИНН 4826040251</div>
-            <div className="pt-2">Имеются противопоказания, необходима консультация специалиста.</div>
           </div>
         </div>
         <div className="mt-8 rounded-2xl overflow-hidden border aspect-[16/6]">
@@ -583,9 +602,14 @@ function Index() {
             style={{ border: 0 }}
           />
         </div>
-        <p className="mt-6 text-xs text-muted-foreground text-center">
-          © {new Date().getFullYear()} Медицинский центр «Здоровье нации». Все права защищены.
-        </p>
+        <div className="mt-8 pt-8 border-t text-center flex flex-col gap-6">
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} Медицинский центр «Здоровье нации». Все права защищены.
+          </p>
+          <div className="text-center text-muted-foreground/60 font-sans font-bold tracking-[0.25em] text-sm sm:text-base md:text-xl uppercase py-4 border border-dashed rounded-xl select-none">
+            ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ, НЕОБХОДИМА КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА
+          </div>
+        </div>
       </section>
     </div>
   );
