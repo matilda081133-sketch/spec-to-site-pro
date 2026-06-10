@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Moon, Sparkles, Droplet, Clock, Leaf, Activity } from "lucide-react";
+import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check } from "lucide-react";
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorPortraitImg from "@/assets/doctor-portrait.jpg";
 import cabinetImg from "@/assets/cabinet.jpg";
@@ -94,7 +94,7 @@ function Index() {
             <a href="tel:+74742370363" className="hover:text-foreground font-medium">+7 (474) 237-03-63</a>
             <span>Липецк, Октябрьская, 61</span>
           </div>
-          <a href="#zayavka" className="hidden sm:inline-flex items-center justify-center border border-primary text-primary hover:bg-surface-soft transition-colors text-xs font-semibold py-1.5 px-4 rounded-full">Записаться</a>
+          <a href="#zayavka" className="hidden sm:inline-flex items-center justify-center border border-primary text-primary hover:bg-surface-soft transition-colors text-sm font-semibold py-2 px-5 rounded-lg">Записаться</a>
         </div>
       </header>
 
@@ -462,10 +462,10 @@ function Index() {
           ].map((c) => (
             <div key={c.t} className="rounded-xl border bg-card p-5 flex flex-col gap-2 hover:border-primary/30 transition-colors">
               <div className="flex gap-2.5 items-start">
-                <span className="text-accent shrink-0 mt-1">●</span>
+                <Check className="text-primary w-4.5 h-4.5 shrink-0 mt-1" />
                 <span className="font-sans text-base md:text-lg font-semibold text-foreground">{c.t}</span>
               </div>
-              <p className="text-sm md:text-base text-muted-foreground pl-5 leading-relaxed">{c.d}</p>
+              <p className="text-sm md:text-base text-muted-foreground pl-7 leading-relaxed">{c.d}</p>
             </div>
           ))}
         </div>
@@ -482,40 +482,32 @@ function Index() {
             title="Как проходит процедура"
             sub="Процедура занимает 40–60 минут. Перед началом врач проводит осмотр кожи, а после процедуры даёт рекомендации по уходу."
           />
-          <div className="grid md:grid-cols-12 gap-6 items-stretch">
-            <div className="md:col-span-7 flex flex-col gap-3">
-              <ol className="grid sm:grid-cols-2 gap-3">
-                {[
-                  ["Консультация и осмотр", "Врач оценит состояние кожи, ответит на вопросы и определит оптимальный план проведения процедуры."],
-                  ["Подготовка кожи", "Кожа очищается и подготавливается к процедуре. При необходимости врач использует аппликационную анестезию."],
-                  ["Проведение процедуры", "Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает от 40 до 60 минут."],
-                  ["Рекомендации после процедуры", "Врач расскажет об особенностях восстановления, уходе за кожей и ответит на вопросы, которые могут возникнуть после процедуры."],
-                ].map(([t, s], i) => (
-                  <li key={t} className="rounded-2xl bg-card border p-5">
-                    <div className="font-display text-2xl text-primary/80">0{i + 1}</div>
-                    <div className="mt-1.5 font-sans text-base md:text-lg font-semibold text-foreground">{t}</div>
-                    <p className="text-sm md:text-base text-muted-foreground mt-1.5">{s}</p>
-                  </li>
-                ))}
-              </ol>
-              <div className="rounded-2xl border border-primary/10 bg-card p-6 shadow-sm flex-1 flex items-center">
-                <div className="flex gap-4 items-start">
-                  <span className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">
-                    <Sparkles className="w-5 h-5" />
-                  </span>
-                  <div>
-                    <h4 className="font-sans text-base md:text-lg font-semibold text-primary">После процедуры можно вернуться к привычным делам в тот же день</h4>
-                    <p className="text-sm md:text-base text-muted-foreground mt-1.5 leading-relaxed">
-                      После биоревитализации не требуется длительного восстановления. Однако в местах инъекций могут временно сохраняться небольшие следы или синяки. Это нормальная реакция кожи, которая обычно проходит самостоятельно.
-                    </p>
-                  </div>
+          <div className="space-y-6">
+            <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                ["Консультация и осмотр", "Врач оценит состояние кожи, ответит на вопросы и определит оптимальный план проведения процедуры."],
+                ["Подготовка кожи", "Кожа очищается и подготавливается к процедуре. При необходимости врач использует аппликационную анестезию."],
+                ["Проведение процедуры", "Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает от 40 до 60 минут."],
+                ["Рекомендации после процедуры", "Врач расскажет об особенностях восстановления, уходе за кожей и ответит на вопросы, которые могут возникнуть после процедуры."],
+              ].map(([t, s], i) => (
+                <li key={t} className="rounded-2xl bg-card border p-5 md:p-6 flex flex-col gap-2 hover:border-primary/30 transition-colors shadow-sm">
+                  <div className="font-display text-3xl text-primary font-semibold">0{i + 1}</div>
+                  <h3 className="font-sans text-base md:text-lg font-semibold text-foreground mt-1">{t}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed mt-1.5">{s}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="rounded-2xl border border-primary/10 bg-card p-6 shadow-sm">
+              <div className="flex gap-4 items-start">
+                <span className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">
+                  <Sparkles className="w-5 h-5" />
+                </span>
+                <div>
+                  <h4 className="font-sans text-base md:text-lg font-semibold text-primary">После процедуры можно вернуться к привычным делам в тот же день</h4>
+                  <p className="text-sm md:text-base text-muted-foreground mt-1.5 leading-relaxed">
+                    После биоревитализации не требуется длительного восстановления. Однако в местах инъекций могут временно сохраняться небольшие следы или синяки. Это нормальная реакция кожи, которая обычно проходит самостоятельно.
+                  </p>
                 </div>
-              </div>
-            </div>
-            <div className="md:col-span-5 flex flex-col">
-              <div className="grid grid-cols-2 gap-3 flex-1">
-                <img src={procedure1} alt="Ресепшен медицинского центра Здоровье Нации" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[300px] md:min-h-0" />
-                <img src={procedure2} alt="Администраторы медицинского центра" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[300px] md:min-h-0" />
               </div>
             </div>
           </div>
@@ -608,15 +600,26 @@ function Index() {
                   <span className="text-primary font-semibold text-sm">[ Экономия 10 000 ₽ ]</span>
                 </div>
                 <p className="text-xs text-muted-foreground mt-2.5 font-medium">Комплекс включает: лицо, шею и кисти рук</p>
-                <p className="text-xs text-muted-foreground/85 mt-1">◌ Спецпредложение действует до 30 июня</p>
               </div>
 
               {/* Advantages list second */}
-              <ul className="space-y-2.5 text-[15px]">
-                <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Процедуру проводит врач-косметолог с опыт более 12 лет</li>
-                <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Используются сертифицированные препараты профессиональной линейки</li>
-                <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Медицинский центр имеет лицензию на оказание услуг по косметологии</li>
-                <li className="flex gap-2.5"><span className="text-accent mt-1.5">●</span> Консультация врача-косметолога включена в стоимость</li>
+              <ul className="space-y-3.5 text-[15px]">
+                <li className="flex gap-3 items-start">
+                  <Check className="text-accent w-5 h-5 shrink-0 mt-0.5" />
+                  <span>Процедуру проводит врач-косметолог с опытом более 12 лет</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="text-accent w-5 h-5 shrink-0 mt-0.5" />
+                  <span>Используются сертифицированные препараты профессиональной линейки</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="text-accent w-5 h-5 shrink-0 mt-0.5" />
+                  <span>Медицинский центр имеет лицензию на оказание услуг по косметологии</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="text-accent w-5 h-5 shrink-0 mt-0.5" />
+                  <span>Консультация врача-косметолога включена в стоимость</span>
+                </li>
               </ul>
             </div>
             <LeadForm submitText="Получить консультацию" />
