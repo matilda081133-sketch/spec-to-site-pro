@@ -48,11 +48,11 @@ export function Faq() {
               className="w-full flex items-center justify-between gap-4 py-3.5 md:py-4 text-left"
               aria-expanded={isOpen}
             >
-              <span className="font-sans text-base md:text-[1.0625rem] font-semibold text-foreground">{it.q}</span>
+              <span className="font-sans text-base md:text-lg font-semibold text-foreground">{it.q}</span>
               <span className={`text-primary text-xl transition-transform ${isOpen ? "rotate-45" : ""}`}>+</span>
             </button>
             {isOpen && (
-              <p className="pb-4 text-sm text-muted-foreground leading-relaxed max-w-3xl">{it.a}</p>
+              <p className="pb-4 text-sm md:text-base text-muted-foreground leading-relaxed max-w-3xl">{it.a}</p>
             )}
           </div>
         );

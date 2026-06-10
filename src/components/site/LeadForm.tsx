@@ -55,7 +55,7 @@ export function LeadForm({ compact = false, submitText = "Узнать, подо
 
   if (sent) {
     return (
-      <div className="rounded-xl border bg-card p-6 text-center">
+      <div className="rounded-xl border bg-card p-6 text-left">
         <div className="font-display text-2xl mb-2">Спасибо за заявку</div>
         <p className="text-muted-foreground text-sm">Администратор свяжется с вами в ближайшее время, ответит на вопросы и подберёт удобное время записи.</p>
       </div>
@@ -92,10 +92,10 @@ export function LeadForm({ compact = false, submitText = "Узнать, подо
         <span>Согласен(на) на обработку персональных данных в соответствии с политикой клиники.</span>
       </label>
       <button type="submit" className="btn-primary w-full">{submitText}</button>
-      <p className="text-xs text-muted-foreground text-center">
+      <p className="text-xs text-muted-foreground text-left">
         Администратор свяжется с вами, ответит на вопросы и подберёт удобное время записи.
       </p>
-      <p className="text-[11px] text-muted-foreground text-center pt-2 border-t">
+      <p className="text-[11px] text-muted-foreground text-left pt-2 border-t">
         Имеются противопоказания, необходима консультация специалиста.
       </p>
     </form>
