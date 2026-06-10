@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { Moon, Sparkles, Droplet, Clock, Leaf, Activity } from "lucide-react";
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorPortraitImg from "@/assets/doctor-portrait.jpg";
 import cabinetImg from "@/assets/cabinet.jpg";
@@ -50,7 +51,7 @@ function SectionTitle({ kicker, title, sub }: { kicker?: string; title: string; 
       {kicker && (
         <div className="text-xs uppercase tracking-[0.18em] text-primary mb-2.5">{kicker}</div>
       )}
-      <h2 className="font-display text-3xl md:text-4xl leading-[1.1]">{title}</h2>
+      <h2 className="font-display text-4xl md:text-5xl leading-[1.1] md:leading-[1.05]">{title}</h2>
       {sub && <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl">{sub}</p>}
     </div>
   );
@@ -93,7 +94,7 @@ function Index() {
             <a href="tel:+74742370363" className="hover:text-foreground font-medium">+7 (474) 237-03-63</a>
             <span>Липецк, Октябрьская, 61</span>
           </div>
-          <a href="#zayavka" className="btn-secondary text-sm py-2 px-4 hidden sm:inline-flex">Записаться</a>
+          <a href="#zayavka" className="hidden sm:inline-flex items-center justify-center border border-primary text-primary hover:bg-surface-soft transition-colors text-xs font-semibold py-1.5 px-4 rounded-full">Записаться</a>
         </div>
       </header>
 
@@ -101,11 +102,11 @@ function Index() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-surface to-background" />
         <div className="container-page grid md:grid-cols-12 gap-8 md:gap-10 py-8 md:py-14 items-stretch">
-          <div className="md:col-span-7 order-1 flex flex-col justify-between">
+          <div className="md:col-span-7 order-1 flex flex-col justify-between h-full">
             <div>
-              <h1 className="font-display text-3xl md:text-4xl leading-[1.1]">
+              <h1 className="font-display text-4xl md:text-6xl leading-[1.1] md:leading-[1.05]">
                 Биоревитализация лица, шеи и&nbsp;кистей рук
-                <span className="block text-primary text-lg md:text-xl mt-2 font-semibold font-sans leading-tight">
+                <span className="block text-primary text-lg md:text-xl mt-3 font-semibold font-sans leading-tight">
                   + консультация врача перед процедурой бесплатно
                 </span>
               </h1>
@@ -114,18 +115,35 @@ function Index() {
               </p>
 
               {/* Price block */}
-              <div className="mt-6 flex flex-wrap items-stretch gap-3">
-                <div className="price-block">
-                  <div className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Цена комплекса</div>
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-display text-5xl md:text-6xl text-primary leading-none">13 000 ₽</span>
-                    <span className="text-[var(--color-price-old)] line-through text-lg">23 000 ₽</span>
+              <div className="mt-6 flex flex-wrap gap-4">
+                <div className="flex-1 sm:flex-initial min-w-[200px] rounded-2xl bg-card border border-border p-5 flex flex-col justify-between shadow-sm">
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary tracking-wider uppercase leading-none">
+                      Цена комплекса
+                    </span>
+                    <div className="flex items-baseline gap-3 mt-3.5">
+                      <span className="font-display text-4xl md:text-5xl text-primary font-bold leading-none">13 000 ₽</span>
+                      <span className="text-[var(--color-price-old)] line-through text-base">23 000 ₽</span>
+                    </div>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-3 font-medium">
+                    Консультация включена
                   </div>
                 </div>
-                <div className="price-block bg-surface-soft border-accent/40">
-                  <div className="text-[11px] uppercase tracking-[0.16em] text-accent-foreground/70">Ваша выгода</div>
-                  <div className="font-display text-3xl md:text-4xl text-primary leading-none mt-1">−10 000 ₽</div>
-                  <div className="text-xs text-muted-foreground mt-1">3 зоны по цене одной</div>
+
+                <div className="flex-1 sm:flex-initial min-w-[200px] relative overflow-hidden rounded-2xl bg-accent/8 border border-accent/30 p-5 flex flex-col justify-between shadow-sm">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-accent/15 rounded-full blur-2xl -mr-6 -mt-6 pointer-events-none" />
+                  <div>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/15 text-[10px] font-bold text-accent-foreground tracking-wider uppercase leading-none">
+                      Ваша выгода
+                    </span>
+                    <div className="font-display text-4xl md:text-5xl text-accent-foreground font-semibold leading-none mt-3.5">
+                      −10 000 ₽
+                    </div>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-3 font-medium">
+                    3 зоны по цене одной
+                  </div>
                 </div>
               </div>
 
@@ -177,42 +195,47 @@ function Index() {
             {
               t: "Отражение выглядит более уставшим, чем вы себя ощущаете",
               d: "Вы хорошо себя чувствуете, но всё чаще кажется, что лицо выглядит уставшим. Даже после выходных, отпуска или хорошего сна отражение уже не радует так, как раньше.",
-              i: "😴",
+              i: Moon,
             },
             {
               t: "Домашний уход уже не даёт привычного эффекта",
-              d: "Кремы, сыворотки и маски остаются частью ухода, но их становится недостаточно. Хочется более заметного результата и ощущения, что кожа действительно получает необходимое увлажнение.",
-              i: "🧴",
+              d: "Кремы, сыворотки и маски остаются частью ухода, но их становится недостаточно. Хочется более заметного результата и ощущения, что кожа действительно получает необходимое увлажнённости.",
+              i: Activity,
             },
             {
               t: "Кажется, что лицо потеряло свежесть",
               d: "Не обязательно появились глубокие морщины. Но лицо выглядит менее живым, менее сияющим и менее ухоженным, чем несколько лет назад.",
-              i: "✨",
+              i: Sparkles,
             },
             {
               t: "Кожа всё чаще кажется сухой и требует больше ухода",
               d: "Приходится чаще пользоваться кремами и сыворотками, но ощущение увлажнённости и комфорта сохраняется ненадолго.",
-              i: "💧",
+              i: Droplet,
             },
             {
               t: "Шея начинает выдавать возраст",
               d: "Лицо ещё радует отражением в зеркале, а вот шея всё чаще напоминает о возрасте. Нередко именно она начинает привлекать внимание раньше, чем появляются выраженные возрастные изменения на лице.",
-              i: "⏳",
+              i: Clock,
             },
             {
               t: "Хочется выглядеть моложе, но естественно",
               d: "Без резких изменений внешности, без эффекта «сделанного лица» и без страха потерять свою естественность и индивидуальность.",
-              i: "🌿",
+              i: Leaf,
             },
-          ].map((it) => (
-            <div key={it.t} className="rounded-2xl border bg-card p-5 md:p-6 flex flex-col gap-3 hover:border-primary/30 transition-colors">
-              <div className="flex items-center gap-3">
-                <span className="w-10 h-10 rounded-lg bg-surface-soft flex items-center justify-center text-base shrink-0">{it.i}</span>
-                <h3 className="font-sans text-base md:text-lg font-semibold leading-snug text-foreground">{it.t}</h3>
+          ].map((it) => {
+            const Icon = it.i;
+            return (
+              <div key={it.t} className="rounded-2xl border bg-card p-5 md:p-6 flex flex-col gap-3 hover:border-primary/30 transition-colors">
+                <div className="flex items-center gap-3">
+                  <span className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center text-primary shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </span>
+                  <h3 className="font-sans text-base md:text-lg font-semibold leading-snug text-foreground">{it.t}</h3>
+                </div>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{it.d}</p>
               </div>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{it.d}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -299,7 +322,7 @@ function Index() {
           <div className="md:col-span-7 flex flex-col justify-between">
             <div>
               <div className="text-xs uppercase tracking-[0.18em] text-primary mb-2">Ваш врач</div>
-              <h2 className="font-display text-3xl md:text-4xl leading-[1.1]">Перова Екатерина Александровна</h2>
+              <h2 className="font-display text-4xl md:text-5xl leading-[1.1] md:leading-[1.05]">Перова Екатерина Александровна</h2>
               <div className="mt-5 flex flex-wrap gap-2">
                 {["Врач-косметолог", "Врач-дерматовенеролог", "Стаж с 2013 года", "I квалификационная категория"].map((b) => (
                   <span key={b} className="badge-soft">{b}</span>
@@ -477,7 +500,9 @@ function Index() {
               </ol>
               <div className="rounded-2xl border border-primary/10 bg-card p-6 shadow-sm flex-1 flex items-center">
                 <div className="flex gap-4 items-start">
-                  <span className="text-2xl">✨</span>
+                  <span className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">
+                    <Sparkles className="w-5 h-5" />
+                  </span>
                   <div>
                     <h4 className="font-sans text-base md:text-lg font-semibold text-primary">После процедуры можно вернуться к привычным делам в тот же день</h4>
                     <p className="text-sm md:text-base text-muted-foreground mt-1.5 leading-relaxed">
@@ -489,8 +514,8 @@ function Index() {
             </div>
             <div className="md:col-span-5 flex flex-col">
               <div className="grid grid-cols-2 gap-3 flex-1">
-                <img src={procedure1} alt="Проведение биоревитализации" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[300px] md:min-h-0" />
-                <img src={procedure2} alt="Введение препарата Atlantis" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[300px] md:min-h-0" />
+                <img src={procedure1} alt="Ресепшен медицинского центра Здоровье Нации" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[300px] md:min-h-0" />
+                <img src={procedure2} alt="Администраторы медицинского центра" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[300px] md:min-h-0" />
               </div>
             </div>
           </div>
@@ -541,7 +566,7 @@ function Index() {
           <SectionTitle title="Частые вопросы" />
           <div className="grid md:grid-cols-12 gap-8 items-stretch">
             <div className="md:col-span-4 flex flex-col">
-              <img src={procedure3} alt="Проведение биоревитализации шеи" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[350px] md:min-h-0" />
+              <img src={procedure3} alt="Ресепшен клиники Здоровье Нации" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[350px] md:min-h-0" />
             </div>
             <div className="md:col-span-8 bg-card rounded-2xl border p-6 md:p-8 shadow-sm">
               <Faq />
@@ -561,7 +586,7 @@ function Index() {
       <section id="zayavka" className="py-14 md:py-20 bg-gradient-to-b from-background to-surface">
         <div className="container-page">
           <div className="max-w-2xl mb-8">
-            <h2 className="font-display text-3xl md:text-5xl leading-[1.05]">
+            <h2 className="font-display text-4xl md:text-6xl leading-[1.1] md:leading-[1.05]">
               Получите консультацию и узнайте, подходит ли вам биоревитализация
             </h2>
             <p className="mt-4 text-muted-foreground md:text-lg">
