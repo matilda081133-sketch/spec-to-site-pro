@@ -94,39 +94,41 @@ function Index() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-surface to-background" />
-        <div className="container-page grid md:grid-cols-12 gap-8 md:gap-10 py-8 md:py-14 items-center">
-          <div className="md:col-span-7 order-1">
-            <h1 className="font-display text-[2.25rem] sm:text-5xl md:text-[3.5rem] leading-[1.02]">
-              Биоревитализация лица, шеи и&nbsp;кистей рук
-              <span className="block text-primary text-xl sm:text-2xl md:text-3xl mt-2 font-semibold font-sans leading-tight">
-                + консультация врача перед процедурой бесплатно
-              </span>
-            </h1>
-            <p className="mt-4 text-muted-foreground md:text-lg max-w-xl">
-              Комплекс для тех, кто хочет более свежий и ухоженный внешний вид без радикальных изменений.
-            </p>
+        <div className="container-page grid md:grid-cols-12 gap-8 md:gap-10 py-8 md:py-14 items-stretch">
+          <div className="md:col-span-7 order-1 flex flex-col justify-between">
+            <div>
+              <h1 className="font-display text-[2.25rem] sm:text-5xl md:text-[3.5rem] leading-[1.02]">
+                Биоревитализация лица, шеи и&nbsp;кистей рук
+                <span className="block text-primary text-xl sm:text-2xl md:text-3xl mt-2 font-semibold font-sans leading-tight">
+                  + консультация врача перед процедурой бесплатно
+                </span>
+              </h1>
+              <p className="mt-4 text-muted-foreground md:text-lg max-w-xl">
+                Комплекс для тех, кто хочет более свежий и ухоженный внешний вид без радикальных изменений.
+              </p>
 
-            {/* Price block */}
-            <div className="mt-6 flex flex-wrap items-stretch gap-3">
-              <div className="price-block">
-                <div className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Цена комплекса</div>
-                <div className="flex items-baseline gap-3">
-                  <span className="font-display text-5xl md:text-6xl text-primary leading-none">13 000 ₽</span>
-                  <span className="text-[var(--color-price-old)] line-through text-lg">23 000 ₽</span>
+              {/* Price block */}
+              <div className="mt-6 flex flex-wrap items-stretch gap-3">
+                <div className="price-block">
+                  <div className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Цена комплекса</div>
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-display text-5xl md:text-6xl text-primary leading-none">13 000 ₽</span>
+                    <span className="text-[var(--color-price-old)] line-through text-lg">23 000 ₽</span>
+                  </div>
+                </div>
+                <div className="price-block bg-surface-soft border-accent/40">
+                  <div className="text-[11px] uppercase tracking-[0.16em] text-accent-foreground/70">Ваша выгода</div>
+                  <div className="font-display text-3xl md:text-4xl text-primary leading-none mt-1">−10 000 ₽</div>
+                  <div className="text-xs text-muted-foreground mt-1">3 зоны по цене одной</div>
                 </div>
               </div>
-              <div className="price-block bg-surface-soft border-accent/40">
-                <div className="text-[11px] uppercase tracking-[0.16em] text-accent-foreground/70">Ваша выгода</div>
-                <div className="font-display text-3xl md:text-4xl text-primary leading-none mt-1">−10 000 ₽</div>
-                <div className="text-xs text-muted-foreground mt-1">3 зоны по цене одной</div>
-              </div>
-            </div>
 
-            {/* Promo plaque */}
-            <div className="mt-4 flex">
-              <div className="inline-flex items-center gap-2 text-[13px] font-medium text-muted-foreground bg-surface/80 border px-3.5 py-1.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                Спецпредложение действует до 30 июня
+              {/* Promo plaque */}
+              <div className="mt-4 flex">
+                <div className="inline-flex items-center gap-2 text-[13px] font-medium text-muted-foreground bg-surface/80 border px-3.5 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  Спецпредложение действует до 30 июня
+                </div>
               </div>
             </div>
 
@@ -138,15 +140,15 @@ function Index() {
             </div>
           </div>
 
-          <div className="md:col-span-5 order-2">
-            <div className="relative">
+          <div className="md:col-span-5 order-2 flex flex-col">
+            <div className="relative h-full flex flex-col">
               <div className="absolute -inset-4 bg-surface-soft/50 rounded-[2rem] -z-10" />
               <img
                 src={cabinetImg}
                 alt="Врач-косметолог Перова Екатерина Александровна"
                 width={1024}
                 height={1280}
-                className="rounded-2xl shadow-xl object-cover w-full aspect-[4/5]"
+                className="rounded-2xl shadow-xl object-cover w-full h-full min-h-[400px] md:min-h-0"
               />
               <div className="absolute -bottom-5 -left-5 bg-card border rounded-xl p-4 shadow-lg max-w-[250px] hidden md:block">
                 <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
