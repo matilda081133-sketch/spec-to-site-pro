@@ -10,7 +10,6 @@ import atlantisAmberFull from "@/assets/atlantis-amber-full.png";
 import procedure1 from "@/assets/procedure-1.jpg";
 import procedure2 from "@/assets/procedure-2.jpg";
 import procedure3 from "@/assets/procedure-3.jpg";
-import procedure4 from "@/assets/procedure-4.jpg";
 import review1 from "@/assets/review-1.png";
 import review2 from "@/assets/review-2.png";
 import { Logo } from "@/components/site/Logo";
@@ -368,9 +367,21 @@ function Index() {
               },
             ].map((p) => (
               <div key={p.t} className="rounded-2xl bg-card border overflow-hidden flex flex-col sm:flex-row">
-                <div className="sm:w-2/5 bg-surface-soft/50 flex items-center justify-center p-4">
-                  <img src={p.img} alt={p.t} loading="lazy" width={1024} height={1024} className="w-full max-w-[150px] aspect-square object-contain rounded-xl" />
-                </div>
+                <button
+                  onClick={() => setActivePhoto(p.img)}
+                  className="sm:w-2/5 bg-surface-soft/50 flex items-center justify-center p-4 focus:outline-none focus:ring-2 focus:ring-primary hover:bg-surface-soft/80 transition-colors cursor-zoom-in group"
+                  title="Нажмите, чтобы увеличить изображение"
+                  aria-label={`Увеличить изображение ${p.t}`}
+                >
+                  <img
+                    src={p.img}
+                    alt={p.t}
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="w-full max-w-[150px] aspect-square object-contain rounded-xl transition-transform duration-300 group-hover:scale-105"
+                  />
+                </button>
                 <div className="p-6 sm:w-3/5">
                   <div className="text-xs uppercase tracking-[0.14em] text-primary mb-1.5">Медицинский препарат</div>
                   <div className="font-sans text-base md:text-lg font-semibold text-primary">{p.t}</div>
@@ -660,7 +671,7 @@ function Index() {
             </button>
             <img
               src={activePhoto}
-              alt="Увеличенный отзыв"
+              alt="Увеличенное изображение"
               className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-100"
             />
           </div>
