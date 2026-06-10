@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorPortraitImg from "@/assets/doctor-portrait.jpg";
@@ -37,7 +38,7 @@ export const Route = createFileRoute("/")({
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap",
       },
     ],
   }),
@@ -57,6 +58,19 @@ function SectionTitle({ kicker, title, sub }: { kicker?: string; title: string; 
 }
 
 function Index() {
+  const [activePhoto, setActivePhoto] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!activePhoto) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActivePhoto(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activePhoto]);
+
   const monthEnd = (() => {
     const d = new Date();
     const last = new Date(d.getFullYear(), d.getMonth() + 1, 0);
@@ -478,8 +492,20 @@ function Index() {
           </div>
           <div className="md:col-span-8 flex flex-col justify-between">
             <div className="grid sm:grid-cols-2 gap-4">
-              <img src={review1} alt="Отзыв пациента на Продокторов 1" loading="lazy" className="rounded-2xl border object-contain w-full shadow-md bg-white p-2" />
-              <img src={review2} alt="Отзыв пациента на Продокторов 2" loading="lazy" className="rounded-2xl border object-contain w-full shadow-md bg-white p-2" />
+              <button 
+                onClick={() => setActivePhoto(review1)} 
+                className="focus:outline-none focus:ring-2 focus:ring-primary rounded-2xl overflow-hidden shadow-md transition-transform hover:scale-[1.02] active:scale-[0.99] cursor-zoom-in"
+                aria-label="Увеличить отзыв 1"
+              >
+                <img src={review1} alt="Отзыв пациента на Продокторов 1" loading="lazy" className="border object-contain w-full bg-white p-2" />
+              </button>
+              <button 
+                onClick={() => setActivePhoto(review2)} 
+                className="focus:outline-none focus:ring-2 focus:ring-primary rounded-2xl overflow-hidden shadow-md transition-transform hover:scale-[1.02] active:scale-[0.99] cursor-zoom-in"
+                aria-label="Увеличить отзыв 2"
+              >
+                <img src={review2} alt="Отзыв пациента на Продокторов 2" loading="lazy" className="border object-contain w-full bg-white p-2" />
+              </button>
             </div>
             <p className="text-xs text-muted-foreground text-center sm:text-right mt-3">
               Отзывы опубликованы на независимом медицинском портале Продокторов.
@@ -495,9 +521,8 @@ function Index() {
             <SectionTitle kicker="FAQ" title="Частые вопросы" />
           </div>
           <div className="grid md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-4 grid sm:grid-cols-2 md:grid-cols-1 gap-4">
-              <img src={procedure3} alt="Проведение биоревитализации шеи" loading="lazy" className="rounded-2xl border object-cover w-full aspect-[4/5] shadow-md" />
-              <img src={procedure4} alt="Биоревитализация кистей рук" loading="lazy" className="rounded-2xl border object-cover w-full aspect-[4/5] shadow-md" />
+            <div className="md:col-span-4">
+              <img src={procedure3} alt="Проведение биоревитализации шеи" loading="lazy" className="rounded-2xl border object-cover w-full aspect-[4/5] shadow-md w-full" />
             </div>
             <div className="md:col-span-8 bg-card rounded-2xl border p-6 md:p-8 shadow-sm">
               <Faq />
@@ -611,6 +636,28 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {activePhoto && (
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 cursor-zoom-out animate-fade-in"
+          onClick={() => setActivePhoto(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="absolute -top-10 right-0 md:-right-10 text-white text-4xl font-light hover:text-gray-300 focus:outline-none cursor-pointer"
+              onClick={() => setActivePhoto(null)}
+              aria-label="Закрыть"
+            >
+              &times;
+            </button>
+            <img
+              src={activePhoto}
+              alt="Увеличенный отзыв"
+              className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-100"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
