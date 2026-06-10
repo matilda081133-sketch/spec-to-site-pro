@@ -49,7 +49,7 @@ function SectionTitle({ kicker, title, sub }: { kicker?: string; title: string; 
   return (
     <div className="max-w-3xl mb-8 md:mb-10">
       {kicker && (
-        <div className="text-xs uppercase tracking-[0.18em] text-accent mb-2.5">{kicker}</div>
+        <div className="text-xs uppercase tracking-[0.18em] text-primary mb-2.5">{kicker}</div>
       )}
       <h2 className="font-display text-3xl md:text-[2.6rem] leading-[1.05]">{title}</h2>
       {sub && <p className="mt-3 text-muted-foreground md:text-base max-w-2xl">{sub}</p>}
@@ -215,8 +215,8 @@ function Index() {
             <div>
               <SectionTitle
                 kicker="Что входит в комплекс"
-                title="комплекс биоревитализации"
-                sub="Лицо, шея и кисти рук требуют внимания одновременно. Именно поэтому в комплекс входят все три зоны и консультация врача-косметолога."
+                title="Комплекс биоревитализации"
+                sub="Лицо, шею и кисти рук требуют внимания одновременно. Именно поэтому в комплекс входят все три зоны и консультация врача-косметолога."
               />
               <ul className="space-y-2.5">
                 {[
@@ -289,7 +289,7 @@ function Index() {
             />
           </div>
           <div className="md:col-span-7">
-            <div className="text-xs uppercase tracking-[0.18em] text-accent mb-2">Ваш врач</div>
+            <div className="text-xs uppercase tracking-[0.18em] text-primary mb-2">Ваш врач</div>
             <h2 className="font-display text-3xl md:text-[2.6rem] leading-[1.05]">Перова Екатерина Александровна</h2>
             <p className="mt-3 text-muted-foreground md:text-base max-w-xl">
               Более свежий и ухоженный внешний вид без эффекта «сделанного лица»
@@ -364,7 +364,7 @@ function Index() {
                   <img src={p.img} alt={p.t} loading="lazy" width={1024} height={1024} className="w-full max-w-[150px] aspect-square object-contain rounded-xl" />
                 </div>
                 <div className="p-6 sm:w-3/5">
-                  <div className="text-[11px] uppercase tracking-[0.14em] text-accent mb-1.5">Медицинский препарат</div>
+                  <div className="text-[11px] uppercase tracking-[0.14em] text-primary mb-1.5">Медицинский препарат</div>
                   <div className="font-display text-2xl">{p.t}</div>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.s}</p>
                   <div className="mt-3 flex flex-wrap gap-1.5 text-[11px]">
