@@ -107,7 +107,7 @@ function Index() {
               <h1 className="font-display text-4xl md:text-6xl leading-[1.1] md:leading-[1.05]">
                 Биоревитализация лица, шеи и&nbsp;кистей рук
                 <span className="block text-primary text-lg md:text-xl mt-3 font-semibold font-sans leading-tight">
-                  + консультация врача перед процедурой бесплатно
+                  + консультация врача перед процедурой <span className="inline-block bg-accent/15 text-accent-foreground px-2.5 py-0.5 rounded-md text-sm md:text-base font-bold border border-accent/20 tracking-wide">бесплатно</span>
                 </span>
               </h1>
               <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-xl">
@@ -177,7 +177,9 @@ function Index() {
               <div className="absolute -bottom-5 -left-5 bg-card border rounded-xl p-4 shadow-lg max-w-[250px] hidden md:block">
                 <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
                 <div className="font-display text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
-                <div className="text-xs text-muted-foreground mt-1.5">Стаж с 2013 года</div>
+                <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/25 text-[10px] font-bold text-primary tracking-wide uppercase leading-none">
+                  Стаж с 2013 года
+                </div>
               </div>
             </div>
           </div>
@@ -334,15 +336,15 @@ function Index() {
               </p>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-3">
-                <div className="rounded-xl bg-surface border p-4">
-                  <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-1.5">Образование</div>
-                  <p className="text-sm md:text-base">Воронежская гос. медицинская академия им. Н. Н. Бурденко, 2012</p>
-                  <p className="text-sm md:text-base mt-1.5">Интернатура по дерматовенерологии, 2013</p>
+                <div className="rounded-xl bg-surface border p-4.5">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-primary mb-2.5 block border-b pb-1.5 border-primary/15">Образование</div>
+                  <p className="text-sm md:text-base leading-relaxed">Воронежская гос. медицинская академия им. Н. Н. Бурденко, 2012</p>
+                  <p className="text-sm md:text-base leading-relaxed mt-2.5 pt-2 border-t border-dashed border-border">Интернатура по дерматовенерологии, 2013</p>
                 </div>
-                <div className="rounded-xl bg-surface border p-4">
-                  <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-1.5">Специализации</div>
-                  <p className="text-sm md:text-base">Профессиональная переподготовка по косметологии</p>
-                  <p className="text-sm md:text-base mt-1.5">Регулярное повышение квалификации по инъекционным методикам</p>
+                <div className="rounded-xl bg-surface border p-4.5">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-primary mb-2.5 block border-b pb-1.5 border-primary/15">Специализации</div>
+                  <p className="text-sm md:text-base leading-relaxed">Профессиональная переподготовка по косметологии</p>
+                  <p className="text-sm md:text-base leading-relaxed mt-2.5 pt-2 border-t border-dashed border-border">Регулярное повышение квалификации по инъекционным методикам</p>
                 </div>
               </div>
 
@@ -518,7 +520,7 @@ function Index() {
       <section className="container-page py-12 md:py-16">
         <SectionTitle
           kicker="Отзывы"
-          title="Что отмечают пациенты после процедуры"
+          title="Что отмечают пациенты после&nbsp;процедуры"
           sub="Отзывы пациентов после биоревитализации у Екатерины Перовой"
         />
         <div className="mt-8">
