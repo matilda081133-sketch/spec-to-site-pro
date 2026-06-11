@@ -105,7 +105,7 @@ function Index() {
           <div className="md:col-span-7 order-1 flex flex-col justify-between h-full">
             <div>
               <h1 className="font-display text-4xl md:text-6xl leading-[1.1] md:leading-[1.05]">
-                Биоревитализация лица, шеи и&nbsp;кистей рук
+                Биоревитализация лица,<br /> шеи и&nbsp;кистей рук
                 <span className="block text-primary text-lg md:text-xl mt-3 font-semibold font-sans leading-tight">
                   + консультация врача перед процедурой <span className="inline-block bg-accent/15 text-accent-foreground px-2.5 py-0.5 rounded-md text-sm md:text-base font-bold border border-accent/20 tracking-wide">бесплатно</span>
                 </span>
