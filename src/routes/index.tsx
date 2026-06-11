@@ -13,6 +13,9 @@ import procedure2 from "@/assets/procedure-2.jpg";
 import procedure3 from "@/assets/procedure-3.jpg";
 import review1 from "@/assets/review-1.png";
 import review2 from "@/assets/review-2.png";
+import vkIcon from "@/assets/vk-brand.svg";
+import okIcon from "@/assets/ok-brand.svg";
+import telegramIcon from "@/assets/telegram-brand.svg";
 import { Logo } from "@/components/site/Logo";
 import { LeadForm } from "@/components/site/LeadForm";
 import { Faq } from "@/components/site/Faq";
@@ -641,34 +644,28 @@ function Index() {
                 href="https://vk.com/zdorovie_nacii48"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0077FF] text-white hover:bg-[#0066DD] hover:shadow-[0_4px_14px_rgba(0,119,255,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#0077FF] text-white hover:bg-[#0066DD] hover:shadow-[0_4px_14px_rgba(0,119,255,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                 title="Мы ВКонтакте"
               >
-                <svg className="w-5.5 h-5.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22.213 8.167c.075-.246 0-.427-.354-.427h-1.17c-.297 0-.434.156-.51.332 0 0-.595 1.446-1.439 2.385-.272.272-.397.359-.545.359-.074 0-.18-.087-.18-.338v-2.338c0-.297-.086-.427-.333-.427H15.8c-.186 0-.298.138-.298.27 0 .28.373.345.41.1.204-.055.204-.2.204-.383v-1.428c0-.624-.112-.892-.7-.892H13.1c-.247 0-.396.164-.396.332 0 .252.336.31.365 1.025v1.547c0 .338-.06.4-.197.4-.366 0-1.257-1.454-1.783-3.123-.11-.326-.223-.458-.523-.458H9.398c-.334 0-.4.156-.4.332 0 .312.4.1.84.975 1.705 2.49 4.316 6.136 8.528 6.136h1.17c.334 0 .4-.156.4-.332v-1.05c0-.498.105-.598.455-.598.257 0 .703.13 1.739 1.127 1.184 1.184 1.38 1.723 2.046 1.723h1.17c.334 0 .4-.156.284-.486-.105-.328-.84-1.144-1.218-1.572-.206-.242-.516-.505-.613-.64-.135-.178-.096-.256 0-.41 0 0 .96-1.353 1.942-2.783z"/>
-                </svg>
+                <img src={vkIcon} className="w-5 h-5 object-contain" alt="VK" />
               </a>
               <a
                 href="https://ok.ru/zdorovie_nacii48"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#EE8208] text-white hover:bg-[#DD7300] hover:shadow-[0_4px_14px_rgba(238,130,8,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#EE8208] text-white hover:bg-[#DD7300] hover:shadow-[0_4px_14px_rgba(238,130,8,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                 title="Мы в Одноклассниках"
               >
-                <svg className="w-5.5 h-5.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm0 1.5c-3.15 0-6.13 1.25-7.9 3.42a1 1 0 1 0 1.56 1.26c1.37-1.71 3.59-2.68 6.34-2.68s4.97.97 6.34 2.68a1 1 0 1 0 1.56-1.26c-1.77-2.17-4.75-3.42-7.9-3.42zm0 4.25a2.25 2.25 0 0 0-2 1.27l-2.07 2.07a1 1 0 1 0 1.42 1.42l1.63-1.63 1.63 1.63a1 1 0 0 0 1.42-1.42l-2.07-2.07A2.25 2.25 0 0 0 12 16.75z" />
-                </svg>
+                <img src={okIcon} className="w-5 h-5 object-contain" alt="OK" />
               </a>
               <a
                 href="https://t.me/zdorovie48"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#24A1DE] text-white hover:bg-[#1E8BBE] hover:shadow-[0_4px_14px_rgba(36,161,222,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-[#24A1DE] text-white hover:bg-[#1E8BBE] hover:shadow-[0_4px_14px_rgba(36,161,222,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                 title="Наш Telegram-канал"
               >
-                <svg className="w-5.5 h-5.5 mr-0.5 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.577.191l-8.536 7.705-.332 4.981c.488 0 .703-.223.976-.488l2.343-2.278 4.872 3.6c.898.495 1.543.24 1.768-.83l3.195-15.06c.327-1.31-.5-1.905-1.357-1.516z"/>
-                </svg>
+                <img src={telegramIcon} className="w-5 h-5 object-contain" alt="Telegram" />
               </a>
             </div>
           </div>
