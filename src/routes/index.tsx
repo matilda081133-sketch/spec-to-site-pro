@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-function SectionTitle({ kicker, title, sub }: { kicker?: string; title: string; sub?: string }) {
+function SectionTitle({ kicker, title, sub }: { kicker?: string; title: React.ReactNode; sub?: React.ReactNode }) {
   return (
     <div className="max-w-3xl mb-8 md:mb-10">
       {kicker && (
@@ -147,13 +147,6 @@ function Index() {
                 </div>
               </div>
 
-              {/* Promo plaque */}
-              <div className="mt-4 flex">
-                <div className="inline-flex items-center gap-2 text-[13px] font-medium text-muted-foreground bg-surface/80 border px-3.5 py-1.5 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  Спецпредложение действует до 30 июня
-                </div>
-              </div>
             </div>
 
             <div className="mt-6">
@@ -190,7 +183,11 @@ function Index() {
       <section className="container-page py-12 md:py-16">
         <SectionTitle
           kicker="Кому подходит"
-          title="Биоревитализация может подойти, если вы замечаете:"
+          title={
+            <>
+              Биоревитализация может подойти,<br className="hidden sm:inline" /> если вы замечаете:
+            </>
+          }
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
@@ -273,36 +270,36 @@ function Index() {
           </div>
           <div className="rounded-2xl bg-card border border-border p-7 md:p-9 shadow-xl flex flex-col justify-between">
             <div>
-              <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Стоимость комплекса</div>
-              <div className="mt-2 flex items-baseline gap-3 flex-wrap">
-                <span className="font-display text-5xl md:text-6xl text-primary leading-none">13 000 ₽</span>
+              <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary mb-1.5">Стоимость комплекса</div>
+              <div className="mt-2.5 flex items-baseline gap-3 flex-wrap">
+                <span className="font-display text-5xl md:text-6xl text-primary font-bold leading-none">13 000 ₽</span>
                 <span className="text-[var(--color-price-old)] line-through text-lg">23 000 ₽</span>
               </div>
-              <div className="mt-4 rounded-xl bg-surface-soft border border-accent/20 p-4">
-                <div className="text-xs uppercase tracking-[0.14em] text-accent-foreground/70 leading-relaxed">
+              <div className="mt-5 rounded-xl bg-surface-soft border border-accent/25 p-4.5 shadow-sm">
+                <div className="text-[10px] uppercase tracking-[0.14em] text-accent-foreground/80 font-bold leading-relaxed">
                   экономия по сравнению со стандартной стоимостью комплекса
                 </div>
-                <div className="font-display text-3xl text-primary mt-1">−10 000 ₽</div>
+                <div className="font-display text-3xl text-primary font-semibold mt-1">−10 000 ₽</div>
               </div>
-              <div className="divider-rule my-6" />
-              <ul className="space-y-3 text-sm md:text-base text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  Консультация врача-косметолога включена
+              <div className="divider-rule my-7" />
+              <ul className="space-y-4 text-sm md:text-base text-muted-foreground">
+                <li className="flex items-start gap-2.5">
+                  <Check className="text-accent w-4.5 h-4.5 shrink-0 mt-0.5" />
+                  <span>Консультация врача-косметолога включена</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  Лицо, шея и кисти рук за одну процедуру
+                <li className="flex items-start gap-2.5">
+                  <Check className="text-accent w-4.5 h-4.5 shrink-0 mt-0.5" />
+                  <span>Лицо, шея и кисти рук за одну процедуру</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  Подбор препарата индивидуально
+                <li className="flex items-start gap-2.5">
+                  <Check className="text-accent w-4.5 h-4.5 shrink-0 mt-0.5" />
+                  <span>Подбор препарата индивидуально</span>
                 </li>
               </ul>
             </div>
             <div>
-              <a href="#zayavka" className="btn-primary mt-8 w-full">Записаться на консультацию →</a>
-              <p className="mt-3 text-xs text-muted-foreground">Запись не обязывает к проведению процедуры</p>
+              <a href="#zayavka" className="btn-primary mt-9 w-full">Записаться на консультацию →</a>
+              <p className="mt-3.5 text-xs text-muted-foreground">Запись не обязывает к проведению процедуры</p>
             </div>
           </div>
         </div>
@@ -482,14 +479,18 @@ function Index() {
           <SectionTitle
             kicker="Этапы процедуры"
             title="Как проходит процедура"
-            sub="Процедура занимает 40–60 минут. Перед началом врач проводит осмотр кожи, а после процедуры даёт рекомендации по уходу."
+            sub={
+              <>
+                Процедура занимает <span className="font-semibold text-primary underline decoration-accent/40 decoration-2 underline-offset-2">40–60 минут</span>. Перед началом врач проводит осмотр кожи, а после процедуры даёт рекомендации по уходу.
+              </>
+            }
           />
           <div className="space-y-6">
             <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {[
                 ["Консультация и осмотр", "Врач оценит состояние кожи, ответит на вопросы и определит оптимальный план проведения процедуры."],
                 ["Подготовка кожи", "Кожа очищается и подготавливается к процедуре. При необходимости врач использует аппликационную анестезию."],
-                ["Проведение процедуры", "Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает от 40 до 60 минут."],
+                ["Проведение процедуры", <>Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает <strong className="font-semibold text-primary">от 40 до 60 минут</strong>.</>],
                 ["Рекомендации после процедуры", "Врач расскажет об особенностях восстановления, уходе за кожей и ответит на вопросы, которые могут возникнуть после процедуры."],
               ].map(([t, s], i) => (
                 <li key={t} className="rounded-2xl bg-card border p-5 md:p-6 flex flex-col gap-2 hover:border-primary/30 transition-colors shadow-sm">
@@ -505,7 +506,7 @@ function Index() {
                   <Sparkles className="w-5 h-5" />
                 </span>
                 <div>
-                  <h4 className="font-sans text-base md:text-lg font-semibold text-primary">После процедуры можно вернуться к привычным делам в тот же день</h4>
+                  <h4 className="font-sans text-base md:text-lg font-semibold text-primary">После процедуры можно вернуться к привычным делам <span className="font-bold underline decoration-accent/40 decoration-2 underline-offset-2 text-primary">в&nbsp;тот&nbsp;же&nbsp;день</span></h4>
                   <p className="text-sm md:text-base text-muted-foreground mt-1.5 leading-relaxed">
                     После биоревитализации не требуется длительного восстановления. Однако в местах инъекций могут временно сохраняться небольшие следы или синяки. Это нормальная реакция кожи, которая обычно проходит самостоятельно.
                   </p>
@@ -591,10 +592,6 @@ function Index() {
             <div className="flex flex-col justify-between">
               {/* Cost block first */}
               <div className="rounded-xl border-2 border-primary/10 bg-card p-6 shadow-md mb-6">
-                <div className="badge-urgency mb-3">
-                  <span className="dot" />
-                  Спецпредложение действует до 30 июня
-                </div>
                 <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground font-semibold">СТОИМОСТЬ КОМПЛЕКСА</div>
                 <div className="flex items-baseline gap-3 mt-1.5 flex-wrap">
                   <span className="font-display text-4xl text-primary font-bold">13 000 ₽</span>
