@@ -641,33 +641,33 @@ function Index() {
                 href="https://vk.com/zdorovie_nacii48"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl border bg-card text-muted-foreground hover:text-[#0077FF] hover:border-[#0077FF]/40 hover:bg-[#0077FF]/5 transition-all duration-300 shadow-sm"
+                className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#0077FF] text-white hover:bg-[#0066DD] hover:shadow-[0_4px_14px_rgba(0,119,255,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                 title="Мы ВКонтакте"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.14 2H4.86A2.86 2.86 0 0 0 2 4.86v14.28A2.86 2.86 0 0 0 4.86 22h14.28a2.86 2.86 0 0 0 2.86-2.86V4.86A2.86 2.86 0 0 0 19.14 2zm-2.83 13.56c-.63.63-1.69.91-3.23.91h-1.07c-2.31 0-4.59-1.15-5.96-3.83A14.9 14.9 0 0 1 5 8.79a.78.78 0 0 1 .78-.79h1.5a.78.78 0 0 1 .78.67c.36 1.13.93 2.13 1.69 2.92.23.23.44.33.61.33.26 0 .4-.18.4-.67V9.38c0-.75-.22-1.08-.83-1.18a.4.4 0 0 1-.29-.39.77.77 0 0 1 .77-.77h2.36a.78.78 0 0 1 .78.78v3.2c0 .35.08.53.24.53s.31-.13.57-.45a13.31 13.31 0 0 0 1.62-2.73.8.8 0 0 1 .76-.54h1.5a.78.78 0 0 1 .77.89 12.28 12.28 0 0 1-1.28 2.65c-.21.3-.33.47-.23.63.1.15.42.44.85.88a9.49 9.49 0 0 1 1.77 2.61.78.78 0 0 1-.72 1.07z"/>
+                <svg className="w-5.5 h-5.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22.213 8.167c.075-.246 0-.427-.354-.427h-1.17c-.297 0-.434.156-.51.332 0 0-.595 1.446-1.439 2.385-.272.272-.397.359-.545.359-.074 0-.18-.087-.18-.338v-2.338c0-.297-.086-.427-.333-.427H15.8c-.186 0-.298.138-.298.27 0 .28.373.345.41.1.204-.055.204-.2.204-.383v-1.428c0-.624-.112-.892-.7-.892H13.1c-.247 0-.396.164-.396.332 0 .252.336.31.365 1.025v1.547c0 .338-.06.4-.197.4-.366 0-1.257-1.454-1.783-3.123-.11-.326-.223-.458-.523-.458H9.398c-.334 0-.4.156-.4.332 0 .312.4.1.84.975 1.705 2.49 4.316 6.136 8.528 6.136h1.17c.334 0 .4-.156.4-.332v-1.05c0-.498.105-.598.455-.598.257 0 .703.13 1.739 1.127 1.184 1.184 1.38 1.723 2.046 1.723h1.17c.334 0 .4-.156.284-.486-.105-.328-.84-1.144-1.218-1.572-.206-.242-.516-.505-.613-.64-.135-.178-.096-.256 0-.41 0 0 .96-1.353 1.942-2.783z"/>
                 </svg>
               </a>
               <a
                 href="https://ok.ru/zdorovie_nacii48"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl border bg-card text-muted-foreground hover:text-[#EE8208] hover:border-[#EE8208]/40 hover:bg-[#EE8208]/5 transition-all duration-300 shadow-sm"
+                className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#EE8208] text-white hover:bg-[#DD7300] hover:shadow-[0_4px_14px_rgba(238,130,8,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                 title="Мы в Одноклассниках"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2c-2.48 0-4.5 2.02-4.5 4.5S9.52 11 12 11s4.5-2.02 4.5-4.5S14.48 2 12 2zm0 7c-1.38 0-2.5-1.12-2.5-2.5S10.62 4 12 4s2.5 1.12 2.5 2.5S13.38 9 12 9zm0 3.5c-3.25 0-6.23 1.25-8.08 3.32a1 1 0 1 0 1.49 1.34C6.91 16.03 9.3 15 12 15s5.09 1.03 6.59 2.16a1 1 0 0 0 1.49-1.34c-1.85-2.07-4.83-3.32-8.08-3.32zm0 4.5a1.5 1.5 0 0 0-1.36.88l-1.92 1.92a1 1 0 1 0 1.42 1.42l1.63-1.63 1.63 1.63a1 1 0 0 0 1.42-1.42l-1.92-1.92A1.5 1.5 0 0 0 12 17z" />
+                <svg className="w-5.5 h-5.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm0 1.5c-3.15 0-6.13 1.25-7.9 3.42a1 1 0 1 0 1.56 1.26c1.37-1.71 3.59-2.68 6.34-2.68s4.97.97 6.34 2.68a1 1 0 1 0 1.56-1.26c-1.77-2.17-4.75-3.42-7.9-3.42zm0 4.25a2.25 2.25 0 0 0-2 1.27l-2.07 2.07a1 1 0 1 0 1.42 1.42l1.63-1.63 1.63 1.63a1 1 0 0 0 1.42-1.42l-2.07-2.07A2.25 2.25 0 0 0 12 16.75z" />
                 </svg>
               </a>
               <a
                 href="https://t.me/zdorovie48"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl border bg-card text-muted-foreground hover:text-[#24A1DE] hover:border-[#24A1DE]/40 hover:bg-[#24A1DE]/5 transition-all duration-300 shadow-sm"
+                className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#24A1DE] text-white hover:bg-[#1E8BBE] hover:shadow-[0_4px_14px_rgba(36,161,222,0.4)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
                 title="Наш Telegram-канал"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.97-.74 3.79-1.65 6.32-2.73 7.57-3.26 3.6-1.5 4.35-1.76 4.84-1.77.11 0 .35.03.51.16.13.11.17.27.19.38.02.13.02.26 0 .4z"/>
+                <svg className="w-5.5 h-5.5 mr-0.5 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.577.191l-8.536 7.705-.332 4.981c.488 0 .703-.223.976-.488l2.343-2.278 4.872 3.6c.898.495 1.543.24 1.768-.83l3.195-15.06c.327-1.31-.5-1.905-1.357-1.516z"/>
                 </svg>
               </a>
             </div>
