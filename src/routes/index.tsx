@@ -115,33 +115,33 @@ function Index() {
               </p>
 
               {/* Price block */}
-              <div className="mt-6 flex flex-wrap gap-4">
-                <div className="flex-1 sm:flex-initial min-w-[200px] rounded-2xl bg-card border border-border p-5 flex flex-col justify-between shadow-sm">
+              <div className="mt-6 flex flex-wrap gap-4 items-start">
+                <div className="flex-1 sm:flex-initial min-w-[200px] rounded-2xl bg-card border border-border p-4 flex flex-col shadow-sm">
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary tracking-wider uppercase leading-none">
                       Цена комплекса
                     </span>
-                    <div className="flex items-baseline gap-3 mt-3.5">
-                      <span className="font-display text-4xl md:text-5xl text-primary font-bold leading-none">13 000 ₽</span>
-                      <span className="text-[var(--color-price-old)] line-through text-base">23 000 ₽</span>
+                    <div className="flex items-baseline gap-2 mt-2.5">
+                      <span className="font-display text-3xl md:text-4xl text-primary font-bold leading-none">13 000 ₽</span>
+                      <span className="text-[var(--color-price-old)] line-through text-sm">23 000 ₽</span>
                     </div>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-3 font-medium">
+                  <div className="text-xs text-muted-foreground mt-2.5 font-medium">
                     Консультация включена
                   </div>
                 </div>
 
-                <div className="flex-1 sm:flex-initial min-w-[200px] relative overflow-hidden rounded-2xl bg-accent/8 border border-accent/30 p-5 flex flex-col justify-between shadow-sm">
+                <div className="flex-1 sm:flex-initial min-w-[200px] relative overflow-hidden rounded-2xl bg-accent/8 border border-accent/30 p-4 flex flex-col shadow-sm">
                   <div className="absolute top-0 right-0 w-20 h-20 bg-accent/15 rounded-full blur-2xl -mr-6 -mt-6 pointer-events-none" />
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/15 text-[10px] font-bold text-accent-foreground tracking-wider uppercase leading-none">
                       Ваша выгода
                     </span>
-                    <div className="font-display text-4xl md:text-5xl text-accent-foreground font-semibold leading-none mt-3.5">
+                    <div className="font-display text-3xl md:text-4xl text-accent-foreground font-semibold leading-none mt-2.5">
                       −10 000 ₽
                     </div>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-3 font-medium">
+                  <div className="text-xs text-muted-foreground mt-2.5 font-medium">
                     3 зоны по цене одной
                   </div>
                 </div>
