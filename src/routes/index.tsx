@@ -119,7 +119,7 @@ function Index() {
 
               {/* Price block */}
               <div className="mt-6 flex flex-wrap gap-4 items-start">
-                <div className="flex-1 sm:flex-initial min-w-[200px] premium-card p-4 flex flex-col">
+                <div className="flex-1 sm:flex-initial min-w-[200px] rounded-2xl bg-card border border-border p-4 flex flex-col shadow-sm">
                   <div>
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary tracking-wider uppercase leading-none">
                       Цена комплекса
@@ -134,9 +134,9 @@ function Index() {
                   </div>
                 </div>
 
-                <div className="flex-1 sm:flex-initial min-w-[200px] premium-card-accent p-4 flex flex-col">
+                <div className="flex-1 sm:flex-initial min-w-[200px] relative overflow-hidden rounded-2xl bg-accent/8 border border-accent/30 p-4 flex flex-col shadow-sm">
                   <div className="absolute top-0 right-0 w-20 h-20 bg-accent/15 rounded-full blur-2xl -mr-6 -mt-6 pointer-events-none" />
-                  <div className="relative z-10">
+                  <div>
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/15 text-[10px] font-bold text-accent-foreground tracking-wider uppercase leading-none">
                       Ваша выгода
                     </span>
@@ -144,7 +144,7 @@ function Index() {
                       −10 000 ₽
                     </div>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-2.5 font-medium relative z-10">
+                  <div className="text-xs text-muted-foreground mt-2.5 font-medium">
                     3 зоны по цене одной
                   </div>
                 </div>
@@ -170,13 +170,11 @@ function Index() {
                 height={1280}
                 className="rounded-2xl shadow-xl object-cover w-full h-full min-h-[400px] md:min-h-0"
               />
-              <div className="absolute -bottom-5 -left-5 premium-card p-4 max-w-[250px] hidden md:block">
-                <div className="relative z-10">
-                  <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
-                  <div className="font-display text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
-                  <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/25 text-[10px] font-bold text-primary tracking-wide uppercase leading-none">
-                    Стаж с 2013 года
-                  </div>
+              <div className="absolute -bottom-5 -left-5 bg-card border rounded-xl p-4 shadow-lg max-w-[250px] hidden md:block">
+                <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
+                <div className="font-display text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
+                <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/25 text-[10px] font-bold text-primary tracking-wide uppercase leading-none">
+                  Стаж с 2013 года
                 </div>
               </div>
             </div>
@@ -229,14 +227,14 @@ function Index() {
           ].map((it) => {
             const Icon = it.i;
             return (
-              <div key={it.t} className="premium-card p-5 md:p-6 flex flex-col gap-3">
-                <div className="flex items-center gap-3 relative z-10">
+              <div key={it.t} className="rounded-2xl border bg-card p-5 md:p-6 flex flex-col gap-3 hover:border-primary/30 transition-colors">
+                <div className="flex items-center gap-3">
                   <span className="w-10 h-10 rounded-lg bg-primary/5 flex items-center justify-center text-primary shrink-0">
                     <Icon className="w-5 h-5" />
                   </span>
                   <h3 className="font-sans text-base md:text-lg font-semibold leading-snug text-foreground">{it.t}</h3>
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">{it.d}</p>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{it.d}</p>
               </div>
             );
           })}
@@ -273,14 +271,14 @@ function Index() {
               </ul>
             </div>
           </div>
-          <div className="premium-card p-7 md:p-9 flex flex-col justify-between">
-            <div className="relative z-10">
+          <div className="rounded-2xl bg-card border border-border p-7 md:p-9 shadow-xl flex flex-col justify-between">
+            <div>
               <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary mb-1.5">Стоимость комплекса</div>
               <div className="mt-2.5 flex items-baseline gap-3 flex-wrap">
                 <span className="font-display text-5xl md:text-6xl text-primary font-bold leading-none">13 000 ₽</span>
                 <span className="text-[var(--color-price-old)] line-through text-lg">23 000 ₽</span>
               </div>
-              <div className="mt-5 premium-card-accent p-4.5">
+              <div className="mt-5 rounded-xl bg-surface-soft border border-accent/25 p-4.5 shadow-sm">
                 <div className="text-[10px] uppercase tracking-[0.14em] text-accent-foreground/80 font-bold leading-relaxed">
                   экономия по сравнению со стандартной стоимостью комплекса
                 </div>
@@ -342,28 +340,28 @@ function Index() {
               </p>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-3">
-                <div className="premium-card p-4.5">
-                  <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-primary mb-2.5 block border-b pb-1.5 border-primary/15 relative z-10">Образование</div>
-                  <p className="text-sm md:text-base leading-relaxed relative z-10">Воронежская гос. медицинская академия им. Н. Н. Бурденко, 2012</p>
-                  <p className="text-sm md:text-base leading-relaxed mt-2.5 pt-2 border-t border-dashed border-border relative z-10">Интернатура по дерматовенерологии, 2013</p>
+                <div className="rounded-xl bg-surface border p-4.5">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-primary mb-2.5 block border-b pb-1.5 border-primary/15">Образование</div>
+                  <p className="text-sm md:text-base leading-relaxed">Воронежская гос. медицинская академия им. Н. Н. Бурденко, 2012</p>
+                  <p className="text-sm md:text-base leading-relaxed mt-2.5 pt-2 border-t border-dashed border-border">Интернатура по дерматовенерологии, 2013</p>
                 </div>
-                <div className="premium-card p-4.5">
-                  <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-primary mb-2.5 block border-b pb-1.5 border-primary/15 relative z-10">Специализации</div>
-                  <p className="text-sm md:text-base leading-relaxed relative z-10">Профессиональная переподготовка по косметологии</p>
-                  <p className="text-sm md:text-base leading-relaxed mt-2.5 pt-2 border-t border-dashed border-border relative z-10">Регулярное повышение квалификации по инъекционным методикам</p>
+                <div className="rounded-xl bg-surface border p-4.5">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.15em] text-primary mb-2.5 block border-b pb-1.5 border-primary/15">Специализации</div>
+                  <p className="text-sm md:text-base leading-relaxed">Профессиональная переподготовка по косметологии</p>
+                  <p className="text-sm md:text-base leading-relaxed mt-2.5 pt-2 border-t border-dashed border-border">Регулярное повышение квалификации по инъекционным методикам</p>
                 </div>
               </div>
 
-              <div className="mt-4 premium-card border-l-4 border-l-accent p-4 rounded-r-xl">
-                <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-1.5 relative z-10">Подход врача</div>
-                <p className="text-sm md:text-base relative z-10">
+              <div className="mt-4 rounded-xl border-l-2 border-accent bg-card p-4">
+                <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-1.5">Подход врача</div>
+                <p className="text-sm md:text-base">
                   Основной акцент — на качестве кожи, естественном результате и процедурах, которые помогают выглядеть более свежо и ухоженно без радикальных изменений внешности.
                 </p>
               </div>
 
-              <div className="mt-4 premium-card border-l-4 border-l-primary p-4 rounded-r-xl">
-                <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-1.5 relative z-10">Ожидаемый результат</div>
-                <p className="text-sm md:text-base font-semibold text-primary relative z-10">
+              <div className="mt-4 rounded-xl border-l-2 border-primary bg-card p-4">
+                <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-1.5">Ожидаемый результат</div>
+                <p className="text-sm md:text-base font-semibold text-primary">
                   Более свежий и ухоженный внешний вид без эффекта «сделанного» лица
                 </p>
               </div>
@@ -397,10 +395,10 @@ function Index() {
                 img: atlantisAmberFull,
               },
             ].map((p) => (
-              <div key={p.t} className="premium-card overflow-hidden flex flex-col sm:flex-row">
+              <div key={p.t} className="rounded-2xl bg-card border overflow-hidden flex flex-col sm:flex-row">
                 <button
                   onClick={() => setActivePhoto(p.img)}
-                  className="sm:w-2/5 bg-surface-soft/50 flex items-center justify-center p-4 focus:outline-none focus:ring-2 focus:ring-primary hover:bg-surface-soft/80 transition-colors cursor-zoom-in group relative z-10"
+                  className="sm:w-2/5 bg-surface-soft/50 flex items-center justify-center p-4 focus:outline-none focus:ring-2 focus:ring-primary hover:bg-surface-soft/80 transition-colors cursor-zoom-in group"
                   title="Нажмите, чтобы увеличить изображение"
                   aria-label={`Увеличить изображение ${p.t}`}
                 >
@@ -413,7 +411,7 @@ function Index() {
                     className="w-full max-w-[150px] aspect-square object-contain rounded-xl transition-transform duration-300 group-hover:scale-105"
                   />
                 </button>
-                <div className="p-6 sm:w-3/5 relative z-10">
+                <div className="p-6 sm:w-3/5">
                   <div className="text-xs uppercase tracking-[0.14em] text-primary mb-1.5">Медицинский препарат</div>
                   <div className="font-sans text-base md:text-lg font-semibold text-primary">{p.t}</div>
                   <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed">{p.s}</p>
@@ -425,9 +423,9 @@ function Index() {
               </div>
             ))}
           </div>
-          <div className="mt-6 premium-card border-l-4 border-l-primary p-4 max-w-3xl rounded-r-xl">
-            <div className="font-sans text-base md:text-lg font-semibold text-primary relative z-10">Препарат подбирает врач — не пациент</div>
-            <p className="text-sm md:text-base text-muted-foreground mt-1 relative z-10">
+          <div className="mt-6 rounded-xl border-l-2 border-primary bg-card p-4 max-w-3xl">
+            <div className="font-sans text-base md:text-lg font-semibold text-primary">Препарат подбирает врач — не пациент</div>
+            <p className="text-sm md:text-base text-muted-foreground mt-1">
               Самостоятельно выбирать препарат не нужно. Решение принимается врачом после консультации и оценки состояния кожи.
             </p>
           </div>
@@ -468,12 +466,12 @@ function Index() {
               d: "Врач подробно объяснит, как ухаживать за кожей после процедуры и на что обратить внимание в период восстановления.",
             },
           ].map((c) => (
-            <div key={c.t} className="premium-card p-5 flex flex-col gap-2">
-              <div className="flex gap-2.5 items-start relative z-10">
+            <div key={c.t} className="rounded-xl border bg-card p-5 flex flex-col gap-2 hover:border-primary/30 transition-colors">
+              <div className="flex gap-2.5 items-start">
                 <Check className="text-primary w-4.5 h-4.5 shrink-0 mt-1" />
                 <span className="font-sans text-base md:text-lg font-semibold text-foreground">{c.t}</span>
               </div>
-              <p className="text-sm md:text-base text-muted-foreground pl-7 leading-relaxed relative z-10">{c.d}</p>
+              <p className="text-sm md:text-base text-muted-foreground pl-7 leading-relaxed">{c.d}</p>
             </div>
           ))}
         </div>
@@ -502,15 +500,15 @@ function Index() {
                 ["Проведение процедуры", <>Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает <strong className="font-semibold text-primary">от 40 до 60 минут</strong>.</>],
                 ["Рекомендации после процедуры", "Врач расскажет об особенностях восстановления, уходе за кожей и ответит на вопросы, которые могут возникнуть после процедуры."],
               ].map(([t, s], i) => (
-                <li key={t} className="premium-card p-5 md:p-6 flex flex-col gap-2">
-                  <div className="font-display text-3xl text-primary font-semibold relative z-10">0{i + 1}</div>
-                  <h3 className="font-sans text-base md:text-lg font-semibold text-foreground mt-1 relative z-10">{t}</h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed mt-1.5 relative z-10">{s}</p>
+                <li key={t} className="rounded-2xl bg-card border p-5 md:p-6 flex flex-col gap-2 hover:border-primary/30 transition-colors shadow-sm">
+                  <div className="font-display text-3xl text-primary font-semibold">0{i + 1}</div>
+                  <h3 className="font-sans text-base md:text-lg font-semibold text-foreground mt-1">{t}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed mt-1.5">{s}</p>
                 </li>
               ))}
             </ol>
-            <div className="premium-card-accent p-6">
-              <div className="flex gap-4 items-start relative z-10">
+            <div className="rounded-2xl border border-primary/10 bg-card p-6 shadow-sm">
+              <div className="flex gap-4 items-start">
                 <span className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-0.5">
                   <Sparkles className="w-5 h-5" />
                 </span>
@@ -535,11 +533,11 @@ function Index() {
         />
         <div className="mt-8">
           <div className="grid md:grid-cols-3 gap-6 items-stretch">
-            <div className="premium-card p-6 md:p-8 flex flex-col justify-center items-start text-left">
-              <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-3 relative z-10">Рейтинг врача</div>
-              <div className="font-display text-5xl md:text-6xl text-primary font-bold relative z-10">4,9 <span className="text-xl md:text-2xl font-sans text-muted-foreground font-normal">из 5</span></div>
-              <div className="flex gap-1.5 text-accent text-2xl my-3.5 relative z-10">★★★★★</div>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed relative z-10">
+            <div className="rounded-2xl border bg-card p-6 md:p-8 shadow-sm flex flex-col justify-center items-start text-left">
+              <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-3">Рейтинг врача</div>
+              <div className="font-display text-5xl md:text-6xl text-primary font-bold">4,9 <span className="text-xl md:text-2xl font-sans text-muted-foreground font-normal">из 5</span></div>
+              <div className="flex gap-1.5 text-accent text-2xl my-3.5">★★★★★</div>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                 на основании отзывов пациентов на портале Продокторов
               </p>
             </div>
@@ -572,10 +570,8 @@ function Index() {
             <div className="md:col-span-4 flex flex-col">
               <img src={procedure3} alt="Ресепшен клиники Здоровье Нации" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[350px] md:min-h-0" />
             </div>
-            <div className="md:col-span-8 premium-card p-6 md:p-8">
-              <div className="relative z-10">
-                <Faq />
-              </div>
+            <div className="md:col-span-8 bg-card rounded-2xl border p-6 md:p-8 shadow-sm">
+              <Faq />
             </div>
           </div>
           <div className="mt-12 max-w-xl">
@@ -600,8 +596,8 @@ function Index() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-stretch">
-            <div className="premium-card p-6 md:p-8 flex flex-col justify-between h-full">
-              <div className="relative z-10">
+            <div className="rounded-2xl border bg-card p-6 md:p-8 shadow-md flex flex-col justify-between h-full">
+              <div>
                 <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground font-semibold">СТОИМОСТЬ КОМПЛЕКСА</div>
                 <div className="flex items-baseline gap-3 mt-1.5 flex-wrap">
                   <span className="font-display text-4xl text-primary font-bold">13 000 ₽</span>
