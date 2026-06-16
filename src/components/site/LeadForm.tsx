@@ -95,9 +95,6 @@ export function LeadForm({ compact = false, submitText = "Узнать, подо
       <p className="text-xs text-muted-foreground text-left">
         Администратор свяжется с вами, ответит на вопросы и подберёт удобное время записи.
       </p>
-      <p className="text-[11px] text-muted-foreground text-left pt-2 border-t">
-        Имеются противопоказания, необходима консультация специалиста.
-      </p>
     </form>
   );
 }

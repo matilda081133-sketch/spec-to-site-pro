@@ -85,10 +85,14 @@
     transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   }
   .btn-primary {
-    background: var(--color-accent); color: oklch(0.2 0.02 200);
-    box-shadow: 0 1px 0 oklch(0.68 0.09 165 / 0.4) inset, 0 16px 40px -14px oklch(0.68 0.09 165 / 0.6);
+    background: oklch(0.88 0.14 135); color: oklch(0.25 0.08 135);
+    box-shadow: 0 1px 0 oklch(0.95 0.1 135 / 0.8) inset, 0 16px 40px -14px oklch(0.88 0.14 135 / 0.6);
   }
-  .btn-primary:hover { background: oklch(0.62 0.09 165); transform: translateY(-1px); box-shadow: 0 1px 0 oklch(0.68 0.09 165 / 0.4) inset, 0 20px 50px -14px oklch(0.68 0.09 165 / 0.7); }
+  .btn-primary:hover { background: oklch(0.84 0.15 135); transform: translateY(-1px); box-shadow: 0 1px 0 oklch(0.95 0.1 135 / 0.8) inset, 0 20px 50px -14px oklch(0.88 0.14 135 / 0.8); }
+
+  .product-image {
+    width: 100%; max-width: 140px; aspect-ratio: 1/1; object-fit: contain; mix-blend-mode: multiply;
+  }
   .btn-secondary {
     background: transparent; color: var(--color-primary);
     border: 1px solid var(--color-primary);
