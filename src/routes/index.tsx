@@ -302,7 +302,7 @@ function Index() {
       {/* BLOCK 4 — ВРАЧ */}
       <section className="container-page py-12 md:py-16">
         <div className="grid md:grid-cols-12 gap-10 items-stretch">
-          <div className="md:col-span-5 flex flex-col">
+          <div className="md:col-span-5 flex flex-col order-2 md:order-1">
             <img
               src={doctorOfficeImg}
               alt="Перова Екатерина Александровна, врач-косметолог"
@@ -312,7 +312,7 @@ function Index() {
               className="rounded-2xl object-cover w-full h-full border shadow-lg min-h-[450px] md:min-h-0"
             />
           </div>
-          <div className="md:col-span-7 flex flex-col justify-between">
+          <div className="md:col-span-7 flex flex-col justify-between order-1 md:order-2">
             <div>
               <div className="text-xs uppercase tracking-[0.18em] text-primary mb-2">Ваш врач</div>
               <h2 className="font-display text-4xl md:text-5xl leading-[1.1] md:leading-[1.05]">Перова Екатерина Александровна</h2>
@@ -361,7 +361,7 @@ function Index() {
               <div key={p.t} className="rounded-2xl bg-card border overflow-hidden flex flex-col sm:flex-row">
                 <button
                   onClick={() => setActivePhoto(p.img)}
-                  className="sm:w-2/5 bg-surface-soft/50 flex items-center justify-center p-4 focus:outline-none focus:ring-2 focus:ring-primary hover:bg-surface-soft/80 transition-colors cursor-zoom-in group"
+                  className="sm:w-1/2 bg-white flex items-center justify-center p-4 focus:outline-none focus:ring-2 focus:ring-primary hover:bg-surface-soft/80 transition-colors cursor-zoom-in group"
                   title="Нажмите, чтобы увеличить изображение"
                   aria-label={`Увеличить изображение ${p.t}`}
                 >
@@ -374,7 +374,7 @@ function Index() {
                     className="product-image transition-transform duration-300 group-hover:scale-105"
                   />
                 </button>
-                <div className="p-6 sm:w-3/5">
+                <div className="p-6 sm:w-1/2">
                   <div className="text-xs uppercase tracking-[0.14em] text-primary mb-1.5">Медицинский препарат</div>
                   <div className="font-sans text-base md:text-lg font-semibold text-primary">{p.t}</div>
                   <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed">{p.s}</p>
