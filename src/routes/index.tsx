@@ -153,13 +153,15 @@ function Index() {
           <div className="md:col-span-5 order-2 flex flex-col">
             <div className="relative h-full flex flex-col">
               <div className="absolute -inset-4 bg-surface-soft/50 rounded-[2rem] -z-10" />
-              <img
-                src={doctorWhiteImg}
-                alt="Врач-косметолог Перова Екатерина Александровна"
-                width={1024}
-                height={1280}
-                className="rounded-2xl shadow-xl object-cover w-full h-full min-h-[400px] md:min-h-0"
-              />
+              <div className="rounded-2xl shadow-xl overflow-hidden w-full h-full min-h-[400px] md:min-h-0 relative z-0">
+                <img
+                  src={doctorWhiteImg}
+                  alt="Врач-косметолог Перова Екатерина Александровна"
+                  width={1024}
+                  height={1280}
+                  className="object-cover object-[center_top] w-full h-full scale-[1.15] brightness-[1.15] contrast-[1.05]"
+                />
+              </div>
               <div className="absolute -bottom-5 -left-5 bg-card border rounded-xl p-4 shadow-lg max-w-[250px] hidden md:block">
                 <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
                 <div className="font-display text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
