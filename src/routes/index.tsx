@@ -306,7 +306,7 @@ function Index() {
         <div className="grid md:grid-cols-12 gap-10 items-stretch">
           <div className="md:col-span-5 flex flex-col order-2 md:order-1">
             <img
-              src={doctorOfficeImg}
+              src={cabinetImg}
               alt="Перова Екатерина Александровна, врач-косметолог"
               loading="lazy"
               width={1024}
@@ -363,7 +363,7 @@ function Index() {
               <div key={p.t} className="rounded-2xl bg-card border overflow-hidden flex flex-col sm:flex-row">
                 <button
                   onClick={() => setActivePhoto(p.img)}
-                  className="sm:w-1/2 bg-white flex items-center justify-center p-4 focus:outline-none focus:ring-2 focus:ring-primary hover:bg-surface-soft/80 transition-colors cursor-zoom-in group"
+                  className="sm:w-1/2 bg-white flex items-stretch justify-center p-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-primary hover:opacity-90 transition-opacity cursor-zoom-in group"
                   title="Нажмите, чтобы увеличить изображение"
                   aria-label={`Увеличить изображение ${p.t}`}
                 >
@@ -483,7 +483,7 @@ function Index() {
             </div>
             <div className="md:col-span-4 flex flex-col">
               <img
-                src={cabinetImg}
+                src={doctorOfficeImg}
                 alt="Кабинет врача-косметолога"
                 loading="lazy"
                 width={1024}
