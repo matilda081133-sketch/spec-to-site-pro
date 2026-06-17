@@ -4,7 +4,7 @@ import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check } from "lucide-re
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorWhiteImg from "@/assets/doctor-white.png";
 import cabinetImg from "@/assets/cabinet.jpg";
-import receptionImg from "@/assets/reception.jpg";
+import emptyCabinetImg from "@/assets/empty-cabinet.png";
 import atlantisBrightFull from "@/assets/atlantis-bright-full.png";
 import atlantisAmberFull from "@/assets/atlantis-amber-full.png";
 import procedure3 from "@/assets/procedure-3.jpg";
@@ -484,7 +484,7 @@ function Index() {
             </div>
             <div className="md:col-span-4 flex flex-col">
               <img
-                src={receptionImg}
+                src={emptyCabinetImg}
                 alt="Кабинет врача-косметолога"
                 loading="lazy"
                 width={1024}
