@@ -160,7 +160,7 @@ function Index() {
                   alt="Врач-косметолог Перова Екатерина Александровна"
                   width={1024}
                   height={1280}
-                  className="object-cover object-[center_top] w-full h-full scale-[1.15] brightness-[1.15] contrast-[1.05]"
+                  className="object-cover object-[center_top] w-full h-full scale-[1.25] translate-y-[5%] brightness-[1.15] contrast-[1.05]"
                 />
               </div>
               <div className="absolute -bottom-5 -left-5 bg-card border rounded-xl p-4 shadow-lg max-w-[250px] hidden md:block">
