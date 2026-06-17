@@ -154,7 +154,7 @@ function Index() {
           <div className="md:col-span-5 order-2 flex flex-col">
             <div className="relative h-full flex flex-col">
               <div className="absolute -inset-4 bg-surface-soft/50 rounded-[2rem] -z-10" />
-              <div className="rounded-2xl shadow-xl overflow-hidden w-full h-full min-h-[400px] md:min-h-0 relative z-0">
+              <div className="rounded-2xl shadow-xl overflow-hidden w-full h-full min-h-[300px] sm:min-h-[400px] md:min-h-0 relative z-0">
                 <img
                   src={doctorWhiteImg}
                   alt="Врач-косметолог Перова Екатерина Александровна"
@@ -312,7 +312,7 @@ function Index() {
               loading="lazy"
               width={1024}
               height={1280}
-              className="rounded-2xl object-cover w-full h-full border shadow-lg min-h-[450px] md:min-h-0"
+              className="rounded-2xl object-cover w-full h-full border shadow-lg min-h-[320px] sm:min-h-[450px] md:min-h-0"
             />
           </div>
           <div className="md:col-span-7 flex flex-col justify-between order-1 md:order-2">
@@ -364,7 +364,7 @@ function Index() {
               <div key={p.t} className="rounded-2xl bg-card border overflow-hidden flex flex-col sm:flex-row">
                 <button
                   onClick={() => setActivePhoto(p.img)}
-                  className="sm:w-2/5 bg-white flex items-center justify-center p-6 focus:outline-none focus:ring-2 focus:ring-primary hover:opacity-90 transition-opacity cursor-zoom-in group"
+                  className="sm:w-2/5 bg-white flex items-center justify-center p-4 sm:p-6 focus:outline-none focus:ring-2 focus:ring-primary hover:opacity-90 transition-opacity cursor-zoom-in group"
                   title="Нажмите, чтобы увеличить изображение"
                   aria-label={`Увеличить изображение ${p.t}`}
                 >
@@ -489,7 +489,7 @@ function Index() {
                 loading="lazy"
                 width={1024}
                 height={1280}
-                className="rounded-2xl w-full h-full object-cover object-bottom border shadow-lg min-h-[350px] md:min-h-0"
+                className="rounded-2xl w-full h-full object-cover object-bottom border shadow-lg min-h-[250px] sm:min-h-[350px] md:min-h-0"
               />
             </div>
           </div>
@@ -540,7 +540,7 @@ function Index() {
           <SectionTitle title="Частые вопросы" />
           <div className="grid md:grid-cols-12 gap-8 items-stretch">
             <div className="md:col-span-4 flex flex-col">
-              <img src={procedure3} alt="Ресепшен клиники Здоровье Нации" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[350px] md:min-h-0" />
+              <img src={procedure3} alt="Ресепшен клиники Здоровье Нации" loading="lazy" className="rounded-2xl border object-cover w-full h-full shadow-md min-h-[200px] sm:min-h-[350px] md:min-h-0" />
             </div>
             <div className="md:col-span-8 bg-card rounded-2xl border p-6 md:p-8 shadow-sm">
               <Faq />
@@ -561,7 +561,7 @@ function Index() {
       <section id="zayavka" className="py-14 md:py-20 bg-gradient-to-b from-background to-surface">
         <div className="container-page">
           <div className="max-w-2xl mb-8">
-            <h2 className="font-display text-4xl md:text-6xl leading-[1.1] md:leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl leading-[1.1] md:leading-[1.05]">
               Получите консультацию и узнайте, подходит ли вам биоревитализация
             </h2>
           </div>
