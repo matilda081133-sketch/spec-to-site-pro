@@ -4,6 +4,7 @@ import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check } from "lucide-re
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorWhiteImg from "@/assets/doctor-white.png";
 import cabinetImg from "@/assets/cabinet.jpg";
+import receptionImg from "@/assets/reception.jpg";
 import atlantisBrightFull from "@/assets/atlantis-bright-full.png";
 import atlantisAmberFull from "@/assets/atlantis-amber-full.png";
 import procedure3 from "@/assets/procedure-3.jpg";
@@ -306,7 +307,7 @@ function Index() {
         <div className="grid md:grid-cols-12 gap-10 items-stretch">
           <div className="md:col-span-5 flex flex-col order-2 md:order-1">
             <img
-              src={cabinetImg}
+              src={doctorOfficeImg}
               alt="Перова Екатерина Александровна, врач-косметолог"
               loading="lazy"
               width={1024}
@@ -363,7 +364,7 @@ function Index() {
               <div key={p.t} className="rounded-2xl bg-card border overflow-hidden flex flex-col sm:flex-row">
                 <button
                   onClick={() => setActivePhoto(p.img)}
-                  className="sm:w-1/2 bg-white flex items-stretch justify-center p-0 overflow-hidden focus:outline-none focus:ring-2 focus:ring-primary hover:opacity-90 transition-opacity cursor-zoom-in group"
+                  className="sm:w-2/5 bg-white flex items-center justify-center p-6 focus:outline-none focus:ring-2 focus:ring-primary hover:opacity-90 transition-opacity cursor-zoom-in group"
                   title="Нажмите, чтобы увеличить изображение"
                   aria-label={`Увеличить изображение ${p.t}`}
                 >
@@ -376,7 +377,7 @@ function Index() {
                     className="product-image transition-transform duration-300 group-hover:scale-105"
                   />
                 </button>
-                <div className="p-6 sm:w-1/2">
+                <div className="p-6 sm:w-3/5">
                   <div className="text-xs uppercase tracking-[0.14em] text-primary mb-1.5">Медицинский препарат</div>
                   <div className="font-sans text-base md:text-lg font-semibold text-primary">{p.t}</div>
                   <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed">{p.s}</p>
@@ -483,7 +484,7 @@ function Index() {
             </div>
             <div className="md:col-span-4 flex flex-col">
               <img
-                src={doctorOfficeImg}
+                src={receptionImg}
                 alt="Кабинет врача-косметолога"
                 loading="lazy"
                 width={1024}
