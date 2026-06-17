@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check } from "lucide-react";
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
-import doctorImg from "@/assets/doctor.jpg";
+import doctorWhiteImg from "@/assets/doctor-white.png";
 import cabinetImg from "@/assets/cabinet.jpg";
 import atlantisBrightFull from "@/assets/atlantis-bright-full.png";
 import atlantisAmberFull from "@/assets/atlantis-amber-full.png";
@@ -154,7 +154,7 @@ function Index() {
             <div className="relative h-full flex flex-col">
               <div className="absolute -inset-4 bg-surface-soft/50 rounded-[2rem] -z-10" />
               <img
-                src={doctorImg}
+                src={doctorWhiteImg}
                 alt="Врач-косметолог Перова Екатерина Александровна"
                 width={1024}
                 height={1280}
