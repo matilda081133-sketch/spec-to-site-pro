@@ -482,14 +482,14 @@ function Index() {
                 </div>
               </div>
             </div>
-            <div className="md:col-span-4 flex flex-col justify-center">
+            <div className="md:col-span-4 flex flex-col">
               <img
                 src={emptyCabinetImg}
                 alt="Кабинет врача-косметолога"
                 loading="lazy"
                 width={1024}
                 height={1280}
-                className="rounded-2xl w-full h-auto object-cover border shadow-lg max-h-[600px] md:max-h-none"
+                className="rounded-2xl w-full h-full object-cover object-bottom border shadow-lg min-h-[350px] md:min-h-0"
               />
             </div>
           </div>
