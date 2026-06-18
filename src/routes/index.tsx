@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check, Phone } from "lucide-react";
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorWhiteImg from "@/assets/doctor-white.png";
 import cabinetImg from "@/assets/cabinet.jpg";
@@ -56,6 +57,8 @@ function SectionTitle({ kicker, title, sub }: { kicker?: string; title: React.Re
 
 function Index() {
   const [activePhoto, setActivePhoto] = useState<string | null>(null);
+  const [showAllReasons, setShowAllReasons] = useState(false);
+  const [emblaRef] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
 
   useEffect(() => {
     if (!activePhoto) return;
@@ -91,9 +94,25 @@ function Index() {
             <a href="tel:+74742370363" className="hover:text-foreground font-medium">+7 (474) 237-03-63</a>
             <span>Липецк, Октябрьская, 61</span>
           </div>
-          <a href="#zayavka" className="hidden sm:inline-flex items-center justify-center border border-primary text-primary hover:bg-surface-soft transition-colors text-sm font-semibold py-2 px-5 rounded-lg">Записаться</a>
+          <div className="flex items-center gap-3">
+            <a href="tel:+74742370363" className="md:hidden flex items-center justify-center border border-primary text-primary hover:bg-surface-soft transition-colors text-sm font-semibold py-1.5 px-3 rounded-lg gap-2">
+              <Phone className="w-4 h-4" />
+              <span>Позвонить</span>
+            </a>
+            <a href="#zayavka" className="hidden md:inline-flex items-center justify-center border border-primary text-primary hover:bg-surface-soft transition-colors text-sm font-semibold py-2 px-5 rounded-lg">Записаться</a>
+          </div>
         </div>
       </header>
+
+      {/* Floating social widget */}
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+        <a href="https://t.me/Longevity_48" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0088cc] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" aria-label="Написать в Telegram">
+          <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.892-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </a>
+        <a href="https://vk.com/lonvi48" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0077FF] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" aria-label="Написать в ВКонтакте">
+          <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current"><path d="M15.077 2H8.923C3.654 2 2 3.654 2 8.923v6.154C2 20.346 3.654 22 8.923 22h6.154C20.346 22 22 20.346 22 15.077V8.923C22 3.654 20.346 2 15.077 2zm3.327 13.577c.365.365.73.712 1.077 1.096.385.423.808.827 1.154 1.308.231.308.058.692-.308.692h-1.904c-.385 0-.692-.154-.923-.462-.327-.442-.654-.885-.981-1.346-.173-.25-.346-.481-.558-.712-.212-.212-.442-.231-.635-.058-.288.25-.385.596-.385.981v1.173c0 .327-.135.423-.462.423h-1.462c-2.327-.096-4.23-1.077-5.75-2.885-1.788-2.115-3.077-4.577-4.135-7.192-.115-.288 0-.462.308-.462h1.981c.269 0 .442.135.538.385.808 2.058 1.846 3.923 3.327 5.462.173.192.346.212.519.096.25-.154.346-.385.346-.692V9.019c0-.462-.135-.692-.558-.788-.192-.038-.192-.096-.077-.231.192-.192.423-.269.75-.269h2.385c.288.058.385.212.385.519v3.423c0 .288.192.365.365.212.192-.192.385-.404.558-.615 1.058-1.288 1.846-2.731 2.481-4.25.077-.212.212-.308.462-.308h2.096c.462 0 .538.212.442.442-.481 1.25-1.154 2.385-1.981 3.442-.327.423-.385.596 0 1z"/></svg>
+        </a>
+      </div>
 
       {/* HERO */}
       <section className="relative overflow-hidden">
@@ -109,35 +128,24 @@ function Index() {
               </h1>
 
               {/* Price block */}
-              <div className="mt-6 flex flex-wrap gap-4 items-start">
-                <div className="flex-1 sm:flex-initial min-w-[200px] rounded-2xl bg-card border border-border p-4 flex flex-col shadow-sm">
+              <div className="mt-6 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+                <div className="rounded-2xl bg-card border border-border p-4 shadow-sm flex items-center justify-between gap-4">
                   <div>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary tracking-wider uppercase leading-none">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary tracking-wider uppercase leading-none mb-1.5">
                       Цена комплекса
                     </span>
-                    <div className="flex items-baseline gap-2 mt-2.5">
+                    <div className="flex items-baseline gap-2">
                       <span className="font-display text-3xl md:text-4xl text-primary font-bold leading-none">13 000 ₽</span>
                       <span className="text-[var(--color-price-old)] line-through text-sm">23 000 ₽</span>
                     </div>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-2.5 font-medium">
-                    Консультация включена
+                  <div className="bg-accent/15 border border-accent/20 text-accent-foreground px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap text-center">
+                    Выгода<br/>10 000 ₽
                   </div>
                 </div>
-
-                <div className="flex-1 sm:flex-initial min-w-[200px] relative overflow-hidden rounded-2xl bg-accent/8 border border-accent/30 p-4 flex flex-col shadow-sm">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-accent/15 rounded-full blur-2xl -mr-6 -mt-6 pointer-events-none" />
-                  <div>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/15 text-[10px] font-bold text-accent-foreground tracking-wider uppercase leading-none">
-                      Ваша выгода
-                    </span>
-                    <div className="font-display text-3xl md:text-4xl text-accent-foreground font-semibold leading-none mt-2.5">
-                      −10 000 ₽
-                    </div>
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-2.5 font-medium">
-                    3 зоны по цене одной
-                  </div>
+                <div className="text-xs text-muted-foreground font-medium flex items-center bg-surface-soft p-3 sm:bg-transparent sm:p-0 rounded-xl sm:rounded-none">
+                  <Check className="w-4 h-4 text-primary mr-1.5 shrink-0" />
+                  3 зоны по цене одной
                 </div>
               </div>
 
@@ -163,10 +171,10 @@ function Index() {
                   className="object-cover object-[center_top] w-full h-full scale-[1.25] translate-y-[5%] brightness-[1.15] contrast-[1.05]"
                 />
               </div>
-              <div className="absolute -bottom-5 -left-5 bg-card border rounded-xl p-4 shadow-lg max-w-[250px] hidden md:block">
-                <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
-                <div className="font-display text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
-                <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/25 text-[10px] font-bold text-primary tracking-wide uppercase leading-none">
+              <div className="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-auto bg-card/90 backdrop-blur border rounded-xl p-3 sm:p-4 shadow-lg max-w-[260px] mx-auto sm:mx-0">
+                <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
+                <div className="font-display text-base sm:text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
+                <div className="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/25 text-[9px] sm:text-[10px] font-bold text-primary tracking-wide uppercase leading-none">
                   Стаж с 2013 года
                 </div>
               </div>
@@ -217,7 +225,7 @@ function Index() {
               d: "Без резких изменений внешности, без эффекта «сделанного лица» и без страха потерять свою естественность и индивидуальность.",
               i: Leaf,
             },
-          ].map((it) => {
+          ].slice(0, showAllReasons ? 6 : 3).map((it) => {
             const Icon = it.i;
             return (
               <div key={it.t} className="rounded-2xl border bg-card p-5 md:p-6 flex flex-col gap-3 hover:border-primary/30 transition-colors">
@@ -232,6 +240,11 @@ function Index() {
             );
           })}
         </div>
+        {!showAllReasons && (
+          <div className="mt-8 flex justify-center">
+            <button onClick={() => setShowAllReasons(true)} className="btn-secondary w-full sm:w-auto">Показать еще 3 ситуации</button>
+          </div>
+        )}
       </section>
 
       {/* BLOCK 3 — комплекс и цена */}
@@ -295,8 +308,8 @@ function Index() {
               </ul>
             </div>
             <div>
-              <a href="#zayavka" className="btn-primary mt-9 w-full">Записаться на консультацию →</a>
-              <p className="mt-3.5 text-xs text-muted-foreground">Запись не обязывает к проведению процедуры</p>
+              <a href="#zayavka" className="btn-primary mt-9 w-full justify-center text-base sm:text-lg py-3.5">Записаться на консультацию</a>
+              <p className="mt-3.5 text-xs text-muted-foreground text-center">Запись не обязывает к проведению процедуры</p>
             </div>
           </div>
         </div>
@@ -305,36 +318,47 @@ function Index() {
       {/* BLOCK 4 — ВРАЧ */}
       <section className="container-page py-12 md:py-16">
         <div className="grid md:grid-cols-12 gap-10 items-stretch">
-          <div className="md:col-span-5 flex flex-col order-2 md:order-1">
+          <div className="md:col-span-5 hidden md:flex flex-col">
             <img
               src={doctorOfficeImg}
               alt="Перова Екатерина Александровна, врач-косметолог"
               loading="lazy"
               width={1024}
               height={1280}
-              className="rounded-2xl object-cover w-full h-full border shadow-lg min-h-[320px] sm:min-h-[450px] md:min-h-0"
+              className="rounded-2xl object-cover w-full h-full border shadow-lg"
             />
           </div>
-          <div className="md:col-span-7 flex flex-col justify-between order-1 md:order-2">
+          <div className="md:col-span-7 flex flex-col justify-start">
             <div>
               <div className="text-xs uppercase tracking-[0.18em] text-primary mb-2">Ваш врач</div>
               <h2 className="font-display text-4xl md:text-5xl leading-[1.1] md:leading-[1.05]">Перова Екатерина Александровна</h2>
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2 mb-6">
                 {["Врач-косметолог", "Врач-дерматовенеролог", "Стаж с 2013 года", "I квалификационная категория"].map((b) => (
                   <span key={b} className="badge-soft">{b}</span>
                 ))}
               </div>
+              
+              <div className="md:hidden rounded-2xl overflow-hidden mb-6 h-[400px]">
+                <img
+                  src={doctorOfficeImg}
+                  alt="Перова Екатерина Александровна, врач-косметолог"
+                  loading="lazy"
+                  width={1024}
+                  height={1280}
+                  className="object-cover object-[center_top] w-full h-full"
+                />
+              </div>
 
-              <div className="mt-4 rounded-xl border-l-2 border-accent bg-card p-4">
-                <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-1.5">Подход врача</div>
-                <p className="text-sm md:text-base">
-                  Основной акцент — на качестве кожи, естественном результате и процедурах, которые помогают выглядеть более свежо и ухоженно без радикальных изменений внешности.
-                </p>
+              <div className="flex justify-center md:justify-start mb-8">
+                <a href="#zayavka" className="btn-primary w-full md:w-auto justify-center">Записаться к врачу-косметологу</a>
               </div>
             </div>
 
-            <div className="mt-8 flex justify-center">
-              <a href="#zayavka" className="btn-primary">Записаться к врачу-косметологу →</a>
+            <div className="rounded-xl border-l-2 border-accent bg-card p-4 mt-auto">
+              <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-1.5">Подход врача</div>
+              <p className="text-sm md:text-base">
+                Основной акцент — на качестве кожи, естественном результате и процедурах, которые помогают выглядеть более свежо и ухоженно без радикальных изменений внешности.
+              </p>
             </div>
           </div>
         </div>
@@ -513,20 +537,21 @@ function Index() {
                 на основании отзывов пациентов на портале Продокторов
               </p>
             </div>
-            <button 
-              onClick={() => setActivePhoto(review1)} 
-              className="focus:outline-none focus:ring-2 focus:ring-primary rounded-2xl overflow-hidden shadow-md transition-transform hover:scale-[1.02] active:scale-[0.99] cursor-zoom-in border bg-white p-4 flex items-center justify-center h-full w-full"
-              aria-label="Увеличить отзыв 1"
-            >
-              <img src={review1} alt="Отзыв пациента на Продокторов 1" loading="lazy" className="object-contain max-h-full max-w-full" />
-            </button>
-            <button 
-              onClick={() => setActivePhoto(review2)} 
-              className="focus:outline-none focus:ring-2 focus:ring-primary rounded-2xl overflow-hidden shadow-md transition-transform hover:scale-[1.02] active:scale-[0.99] cursor-zoom-in border bg-white p-4 flex items-center justify-center h-full w-full"
-              aria-label="Увеличить отзыв 2"
-            >
-              <img src={review2} alt="Отзыв пациента на Продокторов 2" loading="lazy" className="object-contain max-h-full max-w-full" />
-            </button>
+            <div className="md:col-span-2 overflow-hidden -mx-4 px-4 md:mx-0 md:px-0" ref={emblaRef}>
+              <div className="flex gap-4 cursor-grab active:cursor-grabbing h-full">
+                {[review1, review2].map((r, i) => (
+                  <div key={i} className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0">
+                    <button 
+                      onClick={() => setActivePhoto(r)} 
+                      className="focus:outline-none focus:ring-2 focus:ring-primary rounded-2xl overflow-hidden shadow-md transition-transform hover:scale-[1.02] active:scale-[0.99] cursor-zoom-in border bg-white p-4 flex items-center justify-center h-full w-full"
+                      aria-label={`Увеличить отзыв ${i + 1}`}
+                    >
+                      <img src={r} alt={`Отзыв пациента на Продокторов ${i + 1}`} loading="lazy" className="object-contain max-h-[300px] md:max-h-full max-w-full" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
           <p className="text-xs text-muted-foreground text-left mt-4">
             Отзывы опубликованы на независимом медицинском портале Продокторов.
@@ -544,12 +569,12 @@ function Index() {
             </div>
             <div className="md:col-span-8 bg-card rounded-2xl border p-6 md:p-8 shadow-sm">
               <Faq />
-              <div className="mt-8 pt-8 border-t border-border/60">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-                  <div className="max-w-md">
-                    <h3 className="font-display text-2xl text-primary leading-tight">Не нашли ответ на свой вопрос?</h3>
+              <div className="mt-4 pt-4 md:mt-8 md:pt-8 border-t border-border/60">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="flex-1">
+                    <h3 className="font-sans text-base md:text-lg font-semibold text-primary leading-tight">Не нашли ответ на свой вопрос?</h3>
                   </div>
-                  <a href="#zayavka" className="btn-primary shrink-0 w-full sm:w-auto">Получить консультацию</a>
+                  <a href="#zayavka" className="btn-primary shrink-0 w-full sm:w-auto justify-center">Получить консультацию</a>
                 </div>
               </div>
             </div>
