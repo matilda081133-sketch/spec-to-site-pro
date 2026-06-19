@@ -136,42 +136,54 @@ function Index() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-surface to-background" />
         <div className="container-page grid md:grid-cols-12 gap-8 md:gap-10 py-8 md:py-14 items-stretch">
-          <div className="md:col-span-7 order-1 flex flex-col justify-between h-full">
+          <div className="md:col-span-7 order-1 flex flex-col justify-center gap-8 md:gap-10 h-full py-4">
             <div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-[54px] leading-[1.1] md:leading-[1.05]">
                 Биоревитализация лица,<br className="hidden sm:inline" /> шеи и кистей рук
-                <span className="block text-primary text-lg md:text-xl mt-3 font-semibold font-sans leading-tight">
-                  + консультация врача перед процедурой <span className="inline-block bg-accent/15 text-accent-foreground px-2.5 py-0.5 rounded-md text-sm md:text-base font-bold border border-accent/20 tracking-wide">бесплатно</span>
+                <span className="block text-primary text-lg md:text-xl mt-4 font-semibold font-sans leading-tight">
+                  + консультация врача перед процедурой <span className="inline-flex items-center bg-accent/15 text-accent-foreground px-2.5 py-1 rounded-md text-sm md:text-base font-bold border border-accent/20 tracking-wide align-middle ml-2">бесплатно</span>
                 </span>
               </h1>
 
-              {/* Price block */}
-              <div className="mt-6 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-                <div className="rounded-2xl bg-card border border-border p-4 shadow-sm flex items-center justify-between gap-4">
-                  <div>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary tracking-wider uppercase leading-none mb-1.5">
-                      Цена комплекса
-                    </span>
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-display text-3xl md:text-4xl text-primary font-bold leading-none">13 000 ₽</span>
-                      <span className="text-[var(--color-price-old)] line-through text-sm">23 000 ₽</span>
+              {/* Premium Price block */}
+              <div className="mt-8 md:mt-10">
+                <div className="rounded-3xl bg-card border border-border/80 p-5 sm:p-7 shadow-xl max-w-xl relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-50" />
+                  
+                  <div className="relative z-10 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+                    <div>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-primary/10 text-[10px] sm:text-xs font-bold text-primary tracking-wider uppercase leading-none mb-3 border border-primary/20">
+                        Специальное предложение
+                      </span>
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-display text-4xl md:text-5xl text-primary font-bold leading-none tracking-tight">13 000 ₽</span>
+                        <span className="text-[var(--color-price-old)] line-through text-lg md:text-xl font-medium opacity-70">23 000 ₽</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-2 items-start sm:items-end w-full sm:w-auto mt-2 sm:mt-0">
+                      <div className="bg-accent/15 border-2 border-accent/20 text-accent-foreground px-4 py-2.5 rounded-xl text-sm font-bold shadow-sm flex items-center justify-center gap-2 w-full sm:w-auto transform transition-transform group-hover:scale-105">
+                        <Sparkles className="w-4 h-4 shrink-0" />
+                        Выгода 10 000 ₽
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-accent/15 border border-accent/20 text-accent-foreground px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap text-center">
-                    Выгода<br/>10 000 ₽
+                  
+                  <div className="relative z-10 mt-6 pt-5 border-t border-border/60 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                      <Check className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-sm md:text-base font-medium text-foreground leading-snug">
+                      <strong className="text-primary font-bold">3 зоны по цене одной</strong><br className="hidden sm:inline" /> (лицо, шея, кисти рук)
+                    </span>
                   </div>
-                </div>
-                <div className="text-xs text-muted-foreground font-medium flex items-center bg-surface-soft p-3 sm:bg-transparent sm:p-0 rounded-xl sm:rounded-none">
-                  <Check className="w-4 h-4 text-primary mr-1.5 shrink-0" />
-                  3 зоны по цене одной
                 </div>
               </div>
 
             </div>
 
-            <div className="mt-6">
-              <a href="#zayavka" className="btn-primary w-full sm:w-auto">Узнать подробности</a>
-              <p className="mt-2.5 text-xs text-muted-foreground">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-2">
+              <a href="#zayavka" className="btn-primary w-full sm:w-auto text-base sm:text-lg px-8 py-4 sm:py-4.5 shadow-lg shadow-primary/25 hover:shadow-primary/40">Узнать подробности</a>
+              <p className="text-xs text-muted-foreground text-center sm:text-left max-w-[200px] leading-relaxed">
                 Администратор свяжется с вами и подберёт удобное время.
               </p>
             </div>
