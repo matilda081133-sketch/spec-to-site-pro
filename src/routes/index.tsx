@@ -6,6 +6,8 @@ import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorWhiteImg from "@/assets/doctor-white.png";
 import cabinetImg from "@/assets/cabinet.jpg";
 import emptyCabinetImg from "@/assets/empty-cabinet.png";
+import procedureVideo1 from "@/assets/procedure-video-1.mp4";
+import procedureVideo2 from "@/assets/procedure-video-2.mp4";
 import atlantisBrightFull from "@/assets/atlantis-bright-full.png";
 import atlantisAmberFull from "@/assets/atlantis-amber-full.png";
 import procedure3 from "@/assets/procedure-3.jpg";
@@ -506,15 +508,21 @@ function Index() {
                 </div>
               </div>
             </div>
-            <div className="md:col-span-4 flex flex-col">
-              <img
-                src={emptyCabinetImg}
-                alt="Кабинет врача-косметолога"
-                loading="lazy"
-                width={1024}
-                height={1280}
-                className="rounded-2xl w-full h-full object-cover object-bottom border shadow-lg min-h-[250px] sm:min-h-[350px] md:min-h-0"
-              />
+            <div className="md:col-span-4 flex flex-col gap-4 min-h-[400px] md:min-h-0">
+              <div className="rounded-2xl overflow-hidden border shadow-lg flex-1 relative bg-surface-soft group">
+                <video
+                  src={procedureVideo1}
+                  autoPlay muted loop playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div className="rounded-2xl overflow-hidden border shadow-lg flex-1 relative bg-surface-soft group">
+                <video
+                  src={procedureVideo2}
+                  autoPlay muted loop playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
             </div>
           </div>
         </div>
