@@ -66,6 +66,7 @@ function Index() {
   const [activePhoto, setActivePhoto] = useState<string | null>(null);
   const [showAllReasons, setShowAllReasons] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
+  const [videosEmblaRef, videosEmblaApi] = useEmblaCarousel({ align: "center", loop: true });
 
   const scrollToZayavka = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -123,16 +124,6 @@ function Index() {
           </div>
         </div>
       </header>
-
-      {/* Floating Widget - Left (Video) */}
-      <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 flex flex-col items-start gap-3 w-32 sm:w-40 md:w-48 animate-fade-up shadow-2xl rounded-2xl overflow-hidden border border-white/20 bg-black">
-        <video
-          src={procedureVideo2}
-          autoPlay muted loop playsInline
-          controls
-          className="w-full h-auto object-cover"
-        />
-      </div>
 
       {/* Floating social widget - Right */}
       <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
@@ -552,15 +543,37 @@ function Index() {
               </div>
             </div>
 
-            <div className="md:col-span-4 relative">
-              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full h-full min-h-[400px] relative">
-                <video
-                  src={procedureVideo1}
-                  autoPlay muted loop playsInline
-                  controls
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover object-[center_top] block"
-                />
+            <div className="md:col-span-4 relative group">
+              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black w-full h-full min-h-[400px] sm:min-h-[500px] relative" ref={videosEmblaRef}>
+                <div className="flex h-full touch-pan-y">
+                  <div className="flex-[0_0_100%] min-w-0 relative h-full">
+                    <video
+                      src={procedureVideo1}
+                      autoPlay muted loop playsInline
+                      controls
+                      preload="metadata"
+                      className="absolute inset-0 w-full h-full object-cover object-[center_top] block"
+                    />
+                  </div>
+                  <div className="flex-[0_0_100%] min-w-0 relative h-full">
+                    <video
+                      src={procedureVideo2}
+                      autoPlay muted loop playsInline
+                      controls
+                      preload="metadata"
+                      className="absolute inset-0 w-full h-full object-cover object-[center_top] block"
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* Slider Controls */}
+              <div className="absolute top-1/2 -translate-y-1/2 -left-4 -right-4 flex justify-between pointer-events-none sm:opacity-0 sm:group-hover:opacity-100 transition-opacity z-10">
+                <button onClick={() => videosEmblaApi?.scrollPrev()} className="pointer-events-auto w-10 h-10 rounded-full bg-white/90 shadow-lg text-foreground flex items-center justify-center hover:bg-white hover:scale-105 transition-all">
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button onClick={() => videosEmblaApi?.scrollNext()} className="pointer-events-auto w-10 h-10 rounded-full bg-white/90 shadow-lg text-foreground flex items-center justify-center hover:bg-white hover:scale-105 transition-all">
+                  <ChevronRight className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </div>
