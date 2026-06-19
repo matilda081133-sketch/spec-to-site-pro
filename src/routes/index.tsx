@@ -551,13 +551,13 @@ function Index() {
               </div>
             </div>
 
-            <div className="md:col-span-4 flex items-center justify-center relative">
-              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full max-w-[320px] md:max-w-none relative aspect-[9/16]">
+            <div className="md:col-span-4 relative">
+              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full h-full min-h-[400px] relative">
                 <video
                   src={procedureVideo1}
                   controls playsInline
                   preload="metadata"
-                  className="w-full h-full object-cover block"
+                  className="absolute inset-0 w-full h-full object-cover object-[center_top] block"
                 />
               </div>
             </div>
