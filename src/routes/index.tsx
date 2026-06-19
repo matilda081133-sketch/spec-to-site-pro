@@ -67,6 +67,11 @@ function Index() {
   const [showAllReasons, setShowAllReasons] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
 
+  const scrollToZayavka = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById("zayavka")?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
@@ -114,7 +119,7 @@ function Index() {
               <Phone className="w-4 h-4" />
               <span>Позвонить</span>
             </a>
-            <a href="#zayavka" className="hidden md:inline-flex items-center justify-center border border-primary text-primary hover:bg-surface-soft transition-colors text-sm font-semibold py-2 px-5 rounded-lg">Записаться</a>
+            <a href="#zayavka" onClick={scrollToZayavka} className="hidden md:inline-flex items-center justify-center border border-primary text-primary hover:bg-surface-soft transition-colors text-sm font-semibold py-2 px-5 rounded-lg">Записаться</a>
           </div>
         </div>
       </header>
@@ -137,7 +142,7 @@ function Index() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-surface to-background" />
         <div className="container-page grid md:grid-cols-12 gap-8 md:gap-10 py-8 md:py-14 items-stretch">
           <div className="md:col-span-7 order-1 flex flex-col justify-center gap-8 md:gap-10 h-full py-4">
-            <div>
+            <div className="animate-fade-up">
               <h1 className="font-display text-4xl md:text-5xl lg:text-[54px] leading-[1.1] md:leading-[1.05]">
                 Биоревитализация лица,<br className="hidden sm:inline" /> шеи и кистей рук
                 <span className="block text-primary text-lg md:text-xl mt-4 font-semibold font-sans leading-tight">
@@ -146,7 +151,7 @@ function Index() {
               </h1>
 
               {/* Premium Price block */}
-              <div className="mt-8 md:mt-10">
+              <div className="mt-8 md:mt-10 animate-fade-up delay-100">
                 <div className="rounded-3xl bg-card border border-border/80 p-5 sm:p-7 shadow-xl max-w-xl relative overflow-hidden group">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-50" />
                   
@@ -181,15 +186,15 @@ function Index() {
 
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-2">
-              <a href="#zayavka" className="btn-primary w-full sm:w-auto text-base sm:text-lg px-8 py-4 sm:py-4.5 shadow-lg shadow-primary/25 hover:shadow-primary/40">Узнать подробности</a>
-              <p className="text-xs text-muted-foreground text-center sm:text-left max-w-[200px] leading-relaxed">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-2 animate-fade-up delay-200">
+              <a href="#zayavka" onClick={scrollToZayavka} className="btn-primary w-full sm:w-auto text-base sm:text-lg px-8 py-4 sm:py-4.5 shadow-lg shadow-primary/25 hover:shadow-primary/40">Узнать подробности</a>
+              <p className="text-xs text-muted-foreground text-center sm:text-left max-w-[200px] leading-tight">
                 Администратор свяжется с вами и подберёт удобное время.
               </p>
             </div>
           </div>
 
-          <div className="md:col-span-5 order-2 flex flex-col">
+          <div className="md:col-span-5 order-2 flex flex-col animate-fade-up delay-300">
             <div className="relative h-full flex flex-col">
               <div className="absolute -inset-4 bg-surface-soft/50 rounded-[2rem] -z-10" />
               <div className="rounded-2xl shadow-xl overflow-hidden w-full h-full min-h-[300px] sm:min-h-[400px] md:min-h-0 relative z-0">
@@ -506,9 +511,9 @@ function Index() {
               </>
             }
           />
-          <div className="grid md:grid-cols-12 gap-8 items-stretch mt-8">
-            <div className="md:col-span-8 space-y-6">
-              <ol className="grid sm:grid-cols-2 gap-5">
+          <div className="mt-8 space-y-6 md:space-y-8">
+            <div className="space-y-6">
+              <ol className="grid md:grid-cols-2 gap-5">
                 {[
                   ["Консультация и осмотр", "Врач оценит состояние кожи, ответит на вопросы и определит оптимальный план проведения процедуры."],
                   ["Подготовка кожи", "Кожа очищается и подготавливается к процедуре. При необходимости врач использует аппликационную анестезию."],
@@ -536,21 +541,23 @@ function Index() {
                 </div>
               </div>
             </div>
-            <div className="md:col-span-4 grid grid-cols-2 md:grid-cols-1 md:flex md:flex-col gap-4">
-              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full relative">
+
+            {/* Videos Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
+              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full relative max-h-[70vh] flex items-center justify-center">
                 <video
                   src={procedureVideo1}
                   controls playsInline
                   preload="metadata"
-                  className="w-full h-auto block max-h-[60vh] object-contain mx-auto"
+                  className="w-full h-full max-h-[70vh] object-contain block"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full relative">
+              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full relative max-h-[70vh] flex items-center justify-center">
                 <video
                   src={procedureVideo2}
                   controls playsInline
                   preload="metadata"
-                  className="w-full h-auto block max-h-[60vh] object-contain mx-auto"
+                  className="w-full h-full max-h-[70vh] object-contain block"
                 />
               </div>
             </div>
