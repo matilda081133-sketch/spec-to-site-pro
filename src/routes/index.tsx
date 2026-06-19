@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import useEmblaCarousel from "embla-carousel-react";
-import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check, Phone, ChevronLeft, ChevronRight } from "lucide-react";
+import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check, Phone, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorWhiteImg from "@/assets/doctor-white.png";
 import cabinetImg from "@/assets/cabinet.jpg";
@@ -121,10 +121,13 @@ function Index() {
 
       {/* Floating social widget */}
       <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
-        <a href="https://t.me/Longevity_48" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0088cc] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" aria-label="Написать в Telegram">
+        <a href="https://max.ru/zdorovie_nacii48" target="_blank" rel="noreferrer" className="w-12 h-12 bg-primary rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" aria-label="Связаться">
+          <MessageCircle className="w-6 h-6" />
+        </a>
+        <a href="https://t.me/zdorovie48" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0088cc] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" aria-label="Написать в Telegram">
           <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.892-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         </a>
-        <a href="https://vk.com/lonvi48" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0077FF] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" aria-label="Написать в ВКонтакте">
+        <a href="https://vk.com/zdorovie_nacii48" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0077FF] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" aria-label="Написать в ВКонтакте">
           <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current"><path d="M15.077 2H8.923C3.654 2 2 3.654 2 8.923v6.154C2 20.346 3.654 22 8.923 22h6.154C20.346 22 22 20.346 22 15.077V8.923C22 3.654 20.346 2 15.077 2zm3.327 13.577c.365.365.73.712 1.077 1.096.385.423.808.827 1.154 1.308.231.308.058.692-.308.692h-1.904c-.385 0-.692-.154-.923-.462-.327-.442-.654-.885-.981-1.346-.173-.25-.346-.481-.558-.712-.212-.212-.442-.231-.635-.058-.288.25-.385.596-.385.981v1.173c0 .327-.135.423-.462.423h-1.462c-2.327-.096-4.23-1.077-5.75-2.885-1.788-2.115-3.077-4.577-4.135-7.192-.115-.288 0-.462.308-.462h1.981c.269 0 .442.135.538.385.808 2.058 1.846 3.923 3.327 5.462.173.192.346.212.519.096.25-.154.346-.385.346-.692V9.019c0-.462-.135-.692-.558-.788-.192-.038-.192-.096-.077-.231.192-.192.423-.269.75-.269h2.385c.288.058.385.212.385.519v3.423c0 .288.192.365.365.212.192-.192.385-.404.558-.615 1.058-1.288 1.846-2.731 2.481-4.25.077-.212.212-.308.462-.308h2.096c.462 0 .538.212.442.442-.481 1.25-1.154 2.385-1.981 3.442-.327.423-.385.596 0 1z"/></svg>
         </a>
       </div>
@@ -186,7 +189,7 @@ function Index() {
                   className="object-cover object-[center_top] w-full h-full scale-[1.25] translate-y-[5%] brightness-[1.15] contrast-[1.05]"
                 />
               </div>
-              <div className="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-auto bg-card/90 backdrop-blur border rounded-xl p-3 sm:p-4 shadow-lg max-w-[260px] mx-auto sm:mx-0">
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto bg-card/90 backdrop-blur border rounded-xl p-3 sm:p-4 shadow-lg max-w-[260px] mx-auto sm:mx-0">
                 <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
                 <div className="font-display text-base sm:text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
                 <div className="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/25 text-[9px] sm:text-[10px] font-bold text-primary tracking-wide uppercase leading-none">
