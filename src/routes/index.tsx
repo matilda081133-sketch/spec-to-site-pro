@@ -128,7 +128,8 @@ function Index() {
       <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 flex flex-col items-start gap-3 w-32 sm:w-40 md:w-48 animate-fade-up shadow-2xl rounded-2xl overflow-hidden border border-white/20 bg-black">
         <video
           src={procedureVideo2}
-          controls playsInline
+          autoPlay muted loop playsInline
+          controls
           className="w-full h-auto object-cover"
         />
       </div>
@@ -555,7 +556,8 @@ function Index() {
               <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full h-full min-h-[400px] relative">
                 <video
                   src={procedureVideo1}
-                  controls playsInline
+                  autoPlay muted loop playsInline
+                  controls
                   preload="metadata"
                   className="absolute inset-0 w-full h-full object-cover object-[center_top] block"
                 />
