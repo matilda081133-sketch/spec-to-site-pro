@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import useEmblaCarousel from "embla-carousel-react";
-import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check, Phone } from "lucide-react";
+import { Moon, Sparkles, Droplet, Clock, Leaf, Activity, Check, Phone, ChevronLeft, ChevronRight } from "lucide-react";
 import doctorOfficeImg from "@/assets/doctor-office.jpg";
 import doctorWhiteImg from "@/assets/doctor-white.png";
 import cabinetImg from "@/assets/cabinet.jpg";
@@ -13,6 +13,11 @@ import atlantisAmberFull from "@/assets/atlantis-amber-full.png";
 import procedure3 from "@/assets/procedure-3.jpg";
 import review1 from "@/assets/review-1.png";
 import review2 from "@/assets/review-2.png";
+import review3 from "@/assets/review-3.png";
+import review4 from "@/assets/review-4.png";
+import review5 from "@/assets/review-5.png";
+import review6 from "@/assets/review-6.png";
+import review7 from "@/assets/review-7.png";
 import { Logo } from "@/components/site/Logo";
 import { LeadForm } from "@/components/site/LeadForm";
 import { Faq } from "@/components/site/Faq";
@@ -60,7 +65,15 @@ function SectionTitle({ kicker, title, sub }: { kicker?: string; title: React.Re
 function Index() {
   const [activePhoto, setActivePhoto] = useState<string | null>(null);
   const [showAllReasons, setShowAllReasons] = useState(false);
-  const [emblaRef] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps" });
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   useEffect(() => {
     if (!activePhoto) return;
@@ -545,20 +558,38 @@ function Index() {
                 на основании отзывов пациентов на портале Продокторов
               </p>
             </div>
-            <div className="md:col-span-2 overflow-hidden -mx-4 px-4 md:mx-0 md:px-0" ref={emblaRef}>
-              <div className="flex gap-4 cursor-grab active:cursor-grabbing h-full">
-                {[review1, review2].map((r, i) => (
-                  <div key={i} className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0">
-                    <button 
-                      onClick={() => setActivePhoto(r)} 
-                      className="focus:outline-none focus:ring-2 focus:ring-primary rounded-2xl overflow-hidden shadow-md transition-transform hover:scale-[1.02] active:scale-[0.99] cursor-zoom-in border bg-white p-4 flex items-center justify-center h-full w-full"
-                      aria-label={`Увеличить отзыв ${i + 1}`}
-                    >
-                      <img src={r} alt={`Отзыв пациента на Продокторов ${i + 1}`} loading="lazy" className="object-contain max-h-[300px] md:max-h-full max-w-full" />
-                    </button>
-                  </div>
-                ))}
+            <div className="md:col-span-2 relative flex items-center">
+              <button 
+                onClick={scrollPrev}
+                className="absolute -left-3 sm:-left-5 z-10 w-10 h-10 bg-white border shadow-md rounded-full flex items-center justify-center text-primary hover:bg-surface-soft hover:scale-105 transition-all"
+                aria-label="Предыдущий отзыв"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              
+              <div className="overflow-hidden -mx-4 px-4 md:mx-0 md:px-0 w-full" ref={emblaRef}>
+                <div className="flex gap-4 cursor-grab active:cursor-grabbing h-full">
+                  {[review1, review2, review3, review4, review5, review6, review7].map((r, i) => (
+                    <div key={i} className="flex-[0_0_85%] sm:flex-[0_0_48%] min-w-0">
+                      <button 
+                        onClick={() => setActivePhoto(r)} 
+                        className="focus:outline-none focus:ring-2 focus:ring-primary rounded-2xl overflow-hidden shadow-md transition-transform hover:scale-[1.02] active:scale-[0.99] cursor-zoom-in border bg-white p-4 flex items-center justify-center h-full w-full"
+                        aria-label={`Увеличить отзыв ${i + 1}`}
+                      >
+                        <img src={r} alt={`Отзыв пациента на Продокторов ${i + 1}`} loading="lazy" className="object-contain max-h-[300px] md:max-h-full max-w-full" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              <button 
+                onClick={scrollNext}
+                className="absolute -right-3 sm:-right-5 z-10 w-10 h-10 bg-white border shadow-md rounded-full flex items-center justify-center text-primary hover:bg-surface-soft hover:scale-105 transition-all"
+                aria-label="Следующий отзыв"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
             </div>
           </div>
           <p className="text-xs text-muted-foreground text-left mt-4">
