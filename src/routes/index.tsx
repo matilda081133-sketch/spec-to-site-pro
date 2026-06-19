@@ -124,7 +124,16 @@ function Index() {
         </div>
       </header>
 
-      {/* Floating social widget */}
+      {/* Floating Widget - Left (Video) */}
+      <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 flex flex-col items-start gap-3 w-32 sm:w-40 md:w-48 animate-fade-up shadow-2xl rounded-2xl overflow-hidden border border-white/20 bg-black">
+        <video
+          src={procedureVideo2}
+          controls playsInline
+          className="w-full h-auto object-cover"
+        />
+      </div>
+
+      {/* Floating social widget - Right */}
       <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
         <a href="https://max.ru/zdorovie_nacii48" target="_blank" rel="noreferrer" className="w-12 h-12 bg-primary rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform" aria-label="Связаться">
           <MessageCircle className="w-6 h-6" />
@@ -511,9 +520,9 @@ function Index() {
               </>
             }
           />
-          <div className="mt-8 space-y-6 md:space-y-8">
-            <div className="space-y-6">
-              <ol className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-12 gap-8 items-stretch mt-8">
+            <div className="md:col-span-8 space-y-6">
+              <ol className="grid sm:grid-cols-2 gap-5">
                 {[
                   ["Консультация и осмотр", "Врач оценит состояние кожи, ответит на вопросы и определит оптимальный план проведения процедуры."],
                   ["Подготовка кожи", "Кожа очищается и подготавливается к процедуре. При необходимости врач использует аппликационную анестезию."],
@@ -542,22 +551,13 @@ function Index() {
               </div>
             </div>
 
-            {/* Videos Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8">
-              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full relative max-h-[70vh] flex items-center justify-center">
+            <div className="md:col-span-4 flex items-center justify-center relative">
+              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full max-w-[320px] md:max-w-none relative aspect-[9/16]">
                 <video
                   src={procedureVideo1}
                   controls playsInline
                   preload="metadata"
-                  className="w-full h-full max-h-[70vh] object-contain block"
-                />
-              </div>
-              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full relative max-h-[70vh] flex items-center justify-center">
-                <video
-                  src={procedureVideo2}
-                  controls playsInline
-                  preload="metadata"
-                  className="w-full h-full max-h-[70vh] object-contain block"
+                  className="w-full h-full object-cover block"
                 />
               </div>
             </div>
