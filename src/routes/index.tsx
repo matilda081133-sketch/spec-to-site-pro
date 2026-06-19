@@ -13,11 +13,11 @@ import atlantisAmberFull from "@/assets/atlantis-amber-full.png";
 import procedure3 from "@/assets/procedure-3.jpg";
 import review1 from "@/assets/review-1.png";
 import review2 from "@/assets/review-2.png";
-import review3 from "@/assets/review-3.png";
-import review4 from "@/assets/review-4.png";
-import review5 from "@/assets/review-5.png";
-import review6 from "@/assets/review-6.png";
-import review7 from "@/assets/review-7.png";
+import review3 from "@/assets/review-3.jpg";
+import review4 from "@/assets/review-4.jpg";
+import review5 from "@/assets/review-5.jpg";
+import review6 from "@/assets/review-6.jpg";
+import review7 from "@/assets/review-7.jpg";
 import { Logo } from "@/components/site/Logo";
 import { LeadForm } from "@/components/site/LeadForm";
 import { Faq } from "@/components/site/Faq";
@@ -524,19 +524,21 @@ function Index() {
                 </div>
               </div>
             </div>
-            <div className="md:col-span-4 flex flex-col gap-4 min-h-[400px] md:min-h-0">
-              <div className="rounded-2xl overflow-hidden border shadow-lg flex-1 relative bg-surface-soft group">
+            <div className="md:col-span-4 grid grid-cols-2 md:grid-cols-1 md:flex md:flex-col gap-4">
+              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full relative">
                 <video
                   src={procedureVideo1}
-                  autoPlay muted loop playsInline
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  controls playsInline
+                  preload="metadata"
+                  className="w-full h-auto block max-h-[60vh] object-contain mx-auto"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden border shadow-lg flex-1 relative bg-surface-soft group">
+              <div className="rounded-2xl overflow-hidden border shadow-lg bg-black group w-full relative">
                 <video
                   src={procedureVideo2}
-                  autoPlay muted loop playsInline
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  controls playsInline
+                  preload="metadata"
+                  className="w-full h-auto block max-h-[60vh] object-contain mx-auto"
                 />
               </div>
             </div>
