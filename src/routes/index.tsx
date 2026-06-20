@@ -141,13 +141,13 @@ function Index() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-surface to-background" />
-        <div className="container-page grid md:grid-cols-12 gap-8 md:gap-10 py-8 md:py-14 items-stretch">
-          <div className="md:col-span-7 order-1 flex flex-col justify-center gap-8 md:gap-10 h-full py-4">
+        <div className="container-page grid md:grid-cols-12 gap-6 md:gap-8 py-6 md:py-10 items-stretch">
+          <div className="md:col-span-7 order-1 flex flex-col justify-center gap-6 md:gap-8 h-full py-2">
             <div className="animate-fade-up">
               <h1 className="font-display text-4xl md:text-5xl lg:text-[54px] leading-[1.1] md:leading-[1.05]">
                 Биоревитализация лица,<br className="hidden sm:inline" /> шеи и кистей рук
                 <span className="block text-primary text-lg md:text-xl mt-4 font-semibold font-sans leading-tight">
-                  + консультация врача перед процедурой <span className="inline-flex items-center bg-gradient-to-r from-accent/20 to-accent/10 text-accent-foreground px-3 py-1 rounded-md text-sm md:text-base font-bold border border-accent/30 tracking-wide align-middle ml-2 shadow-[0_0_15px_rgba(var(--accent),0.2)]">бесплатно</span>
+                  + консультация врача перед процедурой <span className="inline-flex items-center bg-accent text-accent-foreground px-3 py-1 rounded-md text-sm md:text-base font-bold tracking-wide align-middle ml-2 shadow-[0_0_15px_rgba(var(--accent),0.5)]">бесплатно</span>
                 </span>
               </h1>
 
@@ -180,9 +180,8 @@ function Index() {
                     </div>
                     <span className="text-sm md:text-base font-medium text-foreground leading-snug">
                       <span className="relative inline-block mb-1">
-                        <strong className="relative z-10 text-primary font-bold px-1">3 зоны по цене одной</strong>
-                        <span className="absolute bottom-0.5 left-0 w-full h-2.5 bg-accent/40 -z-10 rounded-sm" />
-                      </span><br className="hidden sm:inline" /> (лицо, шея, кисти рук)
+                        <strong className="bg-primary text-white px-2 py-1 rounded-md font-bold text-sm md:text-base shadow-lg shadow-primary/20">3 зоны по цене одной</strong>
+                      </span><br className="hidden sm:inline" /> <span className="mt-1 inline-block">(лицо, шея, кисти рук)</span>
                     </span>
                   </div>
                 </div>
@@ -213,7 +212,7 @@ function Index() {
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto bg-card/90 backdrop-blur border rounded-xl p-3 sm:p-4 shadow-lg max-w-[260px] mx-auto sm:mx-0">
                 <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
                 <div className="font-display text-base sm:text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
-                <div className="mt-2 inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 border border-primary/25 text-[9px] sm:text-[10px] font-bold text-primary tracking-wide uppercase leading-none shadow-[0_0_12px_rgba(var(--primary),0.15)]">
+                <div className="mt-2 inline-flex items-center px-3 py-1.5 rounded-full bg-primary text-white border border-primary/25 text-[10px] sm:text-[11px] font-bold tracking-wide uppercase leading-none shadow-[0_0_15px_rgba(var(--primary),0.3)]">
                   Стаж с 2013 года
                 </div>
               </div>
@@ -223,7 +222,7 @@ function Index() {
       </section>
 
       {/* BLOCK 2 — кому подходит */}
-      <section className="container-page py-12 md:py-16">
+      <section className="container-page py-10 md:py-12">
         <SectionTitle
           kicker="Кому подходит"
           title={
