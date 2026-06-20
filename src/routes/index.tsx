@@ -147,7 +147,7 @@ function Index() {
               <h1 className="font-display text-4xl md:text-5xl lg:text-[54px] leading-[1.1] md:leading-[1.05]">
                 Биоревитализация лица,<br className="hidden sm:inline" /> шеи и кистей рук
                 <span className="block text-primary text-lg md:text-xl mt-4 font-semibold font-sans leading-tight">
-                  + консультация врача перед процедурой <span className="inline-flex items-center bg-accent/15 text-accent-foreground px-2.5 py-1 rounded-md text-sm md:text-base font-bold border border-accent/20 tracking-wide align-middle ml-2">бесплатно</span>
+                  + консультация врача перед процедурой <span className="inline-flex items-center bg-gradient-to-r from-accent/20 to-accent/10 text-accent-foreground px-3 py-1 rounded-md text-sm md:text-base font-bold border border-accent/30 tracking-wide align-middle ml-2 shadow-[0_0_15px_rgba(var(--accent),0.2)]">бесплатно</span>
                 </span>
               </h1>
 
@@ -162,7 +162,7 @@ function Index() {
                         Специальное предложение
                       </span>
                       <div className="flex items-baseline gap-3">
-                        <span className="font-display text-4xl md:text-5xl text-primary font-bold leading-none tracking-tight">13 000 ₽</span>
+                        <span className="font-display text-4xl md:text-5xl bg-gradient-to-br from-[#d6a54a] via-primary to-[#b8860b] bg-clip-text text-transparent font-bold leading-none tracking-tight drop-shadow-sm">13 000 ₽</span>
                         <span className="text-[var(--color-price-old)] line-through text-lg md:text-xl font-medium opacity-70">23 000 ₽</span>
                       </div>
                     </div>
@@ -179,7 +179,10 @@ function Index() {
                       <Check className="w-5 h-5 text-primary" />
                     </div>
                     <span className="text-sm md:text-base font-medium text-foreground leading-snug">
-                      <strong className="text-primary font-bold">3 зоны по цене одной</strong><br className="hidden sm:inline" /> (лицо, шея, кисти рук)
+                      <span className="relative inline-block mb-1">
+                        <strong className="relative z-10 text-primary font-bold px-1">3 зоны по цене одной</strong>
+                        <span className="absolute bottom-0.5 left-0 w-full h-2.5 bg-accent/40 -z-10 rounded-sm" />
+                      </span><br className="hidden sm:inline" /> (лицо, шея, кисти рук)
                     </span>
                   </div>
                 </div>
@@ -210,7 +213,7 @@ function Index() {
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-auto bg-card/90 backdrop-blur border rounded-xl p-3 sm:p-4 shadow-lg max-w-[260px] mx-auto sm:mx-0">
                 <div className="text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-muted-foreground">ваш врач-косметолог</div>
                 <div className="font-display text-base sm:text-lg leading-tight mt-1">Перова Екатерина Александровна</div>
-                <div className="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/25 text-[9px] sm:text-[10px] font-bold text-primary tracking-wide uppercase leading-none">
+                <div className="mt-2 inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 border border-primary/25 text-[9px] sm:text-[10px] font-bold text-primary tracking-wide uppercase leading-none shadow-[0_0_12px_rgba(var(--primary),0.15)]">
                   Стаж с 2013 года
                 </div>
               </div>
@@ -518,7 +521,7 @@ function Index() {
                 {[
                   ["Консультация и осмотр", "Врач оценит состояние кожи, ответит на вопросы и определит оптимальный план проведения процедуры."],
                   ["Подготовка кожи", "Кожа очищается и подготавливается к процедуре. При необходимости врач использует аппликационную анестезию."],
-                  ["Проведение процедуры", <>Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает <strong className="font-semibold text-primary">от 40 до 60 минут</strong>.</>],
+                  ["Проведение процедуры", <>Врач выполняет инъекции в выбранные зоны. В зависимости от объёма работы процедура обычно занимает <span className="inline-flex items-center px-2 py-0.5 rounded bg-primary/10 text-primary font-semibold text-sm">от 40 до 60 минут</span>.</>],
                   ["Рекомендации после процедуры", "Врач расскажет об особенностях восстановления, уходе за кожей и ответит на вопросы, которые могут возникнуть после процедуры."],
                 ].map(([t, s], i) => (
                   <li key={t} className="rounded-2xl bg-card border p-5 md:p-6 flex flex-col gap-2 hover:border-primary/30 transition-colors shadow-sm">
@@ -534,7 +537,7 @@ function Index() {
                     <Sparkles className="w-5 h-5" />
                   </span>
                   <div>
-                    <h4 className="font-sans text-base md:text-lg font-semibold text-primary">После процедуры можно вернуться к привычным делам <span className="font-bold underline decoration-accent/40 decoration-2 underline-offset-2 text-primary">в&nbsp;тот&nbsp;же&nbsp;день</span></h4>
+                    <h4 className="font-sans text-base md:text-lg font-semibold text-primary">После процедуры можно вернуться к привычным делам <span className="inline-flex items-center bg-accent/20 text-primary px-2.5 py-0.5 rounded-md border border-accent/30 font-bold ml-1">в тот же день</span></h4>
                     <p className="text-sm md:text-base text-muted-foreground mt-1.5 leading-relaxed">
                       После биоревитализации не требуется длительного восстановления. Однако в местах инъекций могут временно сохраняться небольшие следы или синяки. Это нормальная реакция кожи, которая обычно проходит самостоятельно.
                     </p>
