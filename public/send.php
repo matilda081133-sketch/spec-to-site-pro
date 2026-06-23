@@ -46,12 +46,46 @@ $domain = $_SERVER['SERVER_NAME'];
 if (empty($domain)) $domain = "zdorovie48.ru";
 $headers .= "From: noreply@" . $domain . "\r\n";
 
-// Отправляем
+// Отправляем почту
 $mail_sent = mail($to, $subject, $message, $headers);
 
-if ($mail_sent) {
+// --- ИНТЕГРАЦИЯ С БИТРИКС24 ---
+$b24_webhook = "https://dm2ru.bitrix24.ru/rest/29549/vggfz97f5pleiyuq/crm.lead.add.json";
+
+$b24_queryData = http_build_query([
+    'fields' => [
+        'TITLE' => "Заявка с сайта (Биоревитализация)",
+        'NAME' => $name,
+        'PHONE' => [
+            [
+                'VALUE' => $phone,
+                'VALUE_TYPE' => 'WORK'
+            ]
+        ],
+        'SOURCE_ID' => 'WEB' // Источник: Веб-сайт
+    ],
+    'params' => [
+        'REGISTER_SONET_EVENT' => 'Y' // Регистрировать событие в живой ленте
+    ]
+]);
+
+$curl = curl_init();
+curl_setopt_array($curl, [
+    CURLOPT_SSL_VERIFYPEER => 0,
+    CURLOPT_POST => 1,
+    CURLOPT_HEADER => 0,
+    CURLOPT_RETURNTRANSFER => 1,
+    CURLOPT_URL => $b24_webhook,
+    CURLOPT_POSTFIELDS => $b24_queryData,
+]);
+
+$b24_result = curl_exec($curl);
+curl_close($curl);
+// -----------------------------
+
+if ($mail_sent || $b24_result) {
     echo json_encode(["status" => "success", "message" => "Заявка отправлена"]);
 } else {
-    echo json_encode(["status" => "error", "message" => "Ошибка отправки почты. Сервер не настроен для функции mail()."]);
+    echo json_encode(["status" => "error", "message" => "Ошибка отправки."]);
 }
 ?>
