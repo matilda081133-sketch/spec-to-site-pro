@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export function LeadForm({ compact = false, submitText = "Узнать, подойдёт ли мне процедура" }: { compact?: boolean; submitText?: string }) {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [agree, setAgree] = useState(true);
@@ -40,7 +41,7 @@ export function LeadForm({ compact = false, submitText = "Узнать, подо
     setPhone(formatted);
   };
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !phone || !agree) return;
     
@@ -50,7 +51,32 @@ export function LeadForm({ compact = false, submitText = "Узнать, подо
       return;
     }
     
-    setSent(true);
+    setLoading(true);
+    try {
+      const response = await fetch("/send.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, phone }),
+      });
+      
+      const result = await response.json();
+      
+      if (result.status === "success" || response.ok) {
+        setSent(true);
+      } else {
+        alert("Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.");
+      }
+    } catch (err) {
+      console.error("Ошибка при отправке:", err);
+      // Even if fetch fails (e.g. CORS block during local dev without PHP server),
+      // we might want to show success for preview purposes, or alert error.
+      // Let's alert error in real production.
+      alert("Проблема с отправкой заявки. Убедитесь, что сайт загружен на хостинг.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (sent) {
@@ -91,7 +117,9 @@ export function LeadForm({ compact = false, submitText = "Узнать, подо
         <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} className="mt-0.5" />
         <span>Согласен(на) на обработку персональных данных в соответствии с политикой клиники.</span>
       </label>
-      <button type="submit" className="btn-primary w-full">{submitText}</button>
+      <button type="submit" disabled={loading} className="btn-primary w-full disabled:opacity-70">
+        {loading ? "Отправка..." : submitText}
+      </button>
       <p className="text-xs text-muted-foreground text-left">
         Администратор свяжется с вами, ответит на вопросы и подберёт удобное время записи.
       </p>
